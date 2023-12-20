@@ -1,0 +1,39 @@
+@import url('https://fonts.googleapis.com/css2?family=FAMILY_NAME:wght@WEIGHT_OR_RANGE&display=swap');
+
+$theme-background-color: #1d1d11;
+$theme-main-color: #ffdd40;
+$theme-text-color: #ffffff;
+$theme-navbar-color: #181811;
+$firstColor: #dddddd;
+$mainColor: #222831;
+$sideColor: #112031;
+$darkColor: #30475e;
+$lightColor: #f05454;
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+  }
+
+  
+  body {
+    font-family: 'Arial', sans-serif;
+    background-color: $theme-background-color;
+    height: 100%;
+
+  }
+
+  #root {
+    height: 100%;
+  }
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+
+ 
+  
+  
