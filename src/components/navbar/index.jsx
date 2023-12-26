@@ -5,7 +5,6 @@ import { WiEarthquake } from "react-icons/wi";
 import { FaBars } from "react-icons/fa";
 import { HiX } from "react-icons/hi";
 
-
 const data = [
   {
     label: "Home",
@@ -39,9 +38,9 @@ const Navbar = () => {
     <div>
       <nav className="navbar">
         <div className="navbar_container">
-        <Link to={'/'} className="navbar_logo">
-          <WiEarthquake size={30} />
-        </Link>
+          <Link to={"/"} className="navbar_logo">
+            <WiEarthquake size={30} />
+          </Link>
 
           <ul className={`navbar_menu ${menuIsVisible && "active"}`}>
             {data.map((item, key) => (
@@ -52,10 +51,13 @@ const Navbar = () => {
               </li>
             ))}
           </ul>
-          <div className="toggleIcon" onClick={() => setMenuIsVisible(!menuIsVisible)}>
-            {menuIsVisible ? <HiX size={30}/> : <FaBars size={30}/>}
+          <div
+            className="toggleIcon"
+            onClick={() => setMenuIsVisible(!menuIsVisible)}
+          >
+            {menuIsVisible ? <HiX size={30} /> : <FaBars size={30} />}
           </div>
-          </div>
+        </div>
       </nav>
     </div>
   );
