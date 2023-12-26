@@ -1,6 +1,10 @@
 import { Link } from "react-router-dom";
 import React, { useState } from "react";
 import "./styles.scss";
+import { WiEarthquake } from "react-icons/wi";
+import { FaBars } from "react-icons/fa";
+import { HiX } from "react-icons/hi";
+
 
 const data = [
   {
@@ -33,18 +37,11 @@ const Navbar = () => {
 
   return (
     <div>
-      <nav className={`navbar ${menuIsVisible && "active"}`}>
-        <div className="wrapper">
-          <div className="left">
-            <div
-              className="hamburger-menu"
-              onClick={() => setMenuIsVisible(!menuIsVisible)}
-            >
-              <span className="line line-1"></span>
-              <span className="line line-2"></span>
-              <span className="line line-3"></span>
-            </div>
-          </div>
+      <nav className="navbar">
+        <div className="navbar_container">
+        <Link to={'/'} className="navbar_logo">
+          <WiEarthquake size={30} />
+        </Link>
 
           <ul className={`navbar_menu ${menuIsVisible && "active"}`}>
             {data.map((item, key) => (
@@ -55,7 +52,10 @@ const Navbar = () => {
               </li>
             ))}
           </ul>
-        </div>
+          <div className="toggleIcon" onClick={() => setMenuIsVisible(!menuIsVisible)}>
+            {menuIsVisible ? <HiX size={30}/> : <FaBars size={30}/>}
+          </div>
+          </div>
       </nav>
     </div>
   );
