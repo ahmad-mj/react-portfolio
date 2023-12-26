@@ -9,6 +9,8 @@
     background: $theme-navbar-color;
     color: $mainColor;
     font-size: 1.2rem;
+    position: absolute;
+    top: 0;
 
 
     .navbar_container {
@@ -52,7 +54,7 @@
             }
 
             & .menu_links {
-                color: $darkColor;
+                color: $theme-main-color;
                 text-decoration: none;
                 padding: 0.5rem;
 
@@ -86,7 +88,7 @@
             transition: all 0.8s ease;
 
             &.active {
-                background: $firstColor;
+                background: $theme-navbar-color;
                 left: 0;
                 opacity: 1;
                 width: 100%;
@@ -97,6 +99,11 @@
                 border: solid 1px $darkColor;
                 margin: 0;
                 padding: 20px 0;
+                
+        
+                    &::after {
+                        content:none;
+                    }
             }
         }
 
@@ -104,6 +111,7 @@
             display: block;
             cursor: pointer;
             color: $theme-main-color;
+            margin: auto 0;
         }
 
     }
