@@ -1,4 +1,4 @@
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, useLocation } from "react-router-dom";
 import "./App.css";
 import About from "./containers/about";
 import Home from "./containers/home";
@@ -12,6 +12,9 @@ import { loadSlim } from "@tsparticles/slim";
 import { useEffect, useState } from "react";
 import options from "./utils/particles";
 function App() {
+  const location = useLocation();
+  const homePage = location.pathname === '/';
+  
   const [init, setInit] = useState(false);
 
   // this should be run only once per application lifetime
@@ -29,14 +32,13 @@ function App() {
 
   return (
     <div className="App">
-      if (init)
-      {
+      {(init && homePage &&
         <Particles
           id="tsparticles"
           particlesLoaded={particlesLoaded}
           options={options}
         />
-      }
+      )}
       <Navbar />
       <Routes>
         <Route path="/" Component={Home} />
