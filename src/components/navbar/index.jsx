@@ -35,7 +35,7 @@ const Navbar = () => {
   const [menuIsVisible, setMenuIsVisible] = useState(false);
 
   return (
-    <div>
+    <>
       <nav className="navbar">
         <div className="navbar_container">
           <Link to={"/"} className="navbar_logo">
@@ -59,7 +59,7 @@ const Navbar = () => {
           </div>
         </div>
       </nav>
-    </div>
+    </>
   );
 };
 export default Navbar;
