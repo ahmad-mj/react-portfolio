@@ -10,14 +10,12 @@ return(
                     <br />
                     Developer
                 </h1>
-                <p className="description">
-                     with experience in building responsive and scalable web applications.
-                </p>
             </div>
-            <button className="btn btn_primary"></button>
+            <button className="btn btn_primary">Get in Touch</button>
+            <button className="btn btn_primary">Download CV</button>
         </div>
         <div className="hero_section_img">
-            <img src="" alt="Hero Section" />
+            <img src="./img/hero_img.jpg" alt="Hero Section" />
         </div>
     </div>
     )
