@@ -1,5 +1,5 @@
 import { Route, Routes, useLocation } from "react-router-dom";
-import "./App.css";
+import "./App.scss";
 import About from "./containers/about";
 import Home from "./containers/home";
 import Contact from "./containers/contact";
