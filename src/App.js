@@ -32,13 +32,13 @@ function App() {
 
   return (
     <div className="App">
-      {(init && homePage &&
+      {/* {(init && homePage &&
         <Particles
           id="tsparticles"
           particlesLoaded={particlesLoaded}
           options={options}
         />
-      )}
+      )} */}
       <Navbar />
       <Routes>
         <Route path="/" Component={Home} />
@@ -46,8 +46,6 @@ function App() {
         <Route path="/contact" Component={Contact} />
         <Route path="/home" Component={Home} />
         <Route path="/portfolio" Component={Portfolio} />
-        <Route path="/resume" Component={Resume} />
-        <Route path="/skills" Component={Skills} />
       </Routes>
     </div>
   );
