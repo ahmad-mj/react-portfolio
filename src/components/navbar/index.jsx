@@ -18,18 +18,6 @@ const data = [
     label: "Contact",
     to: "/contact",
   },
-  {
-    label: "Portfolio",
-    to: "/portfolio",
-  },
-  {
-    label: "Resume",
-    to: "/resume",
-  },
-  {
-    label: "Skills",
-    to: "/skills",
-  },
 ];
 const Navbar = () => {
   const [menuIsVisible, setMenuIsVisible] = useState(false);
