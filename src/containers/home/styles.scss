@@ -1,0 +1,11 @@
+@import '../../global.scss';
+.hero_section {
+position: relative;
+top: 80px;
+.hero_section_img{
+    img{
+        width: 400px;
+        border-radius: 50%;
+    }
+}
+}

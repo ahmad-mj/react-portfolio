@@ -1,39 +1,140 @@
 @import url('https://fonts.googleapis.com/css2?family=FAMILY_NAME:wght@WEIGHT_OR_RANGE&display=swap');
 
-$theme-background-color: #1d1d11;
 $theme-main-color: #ffdd40;
-$theme-text-color: #ffffff;
-$theme-navbar-color: #181811;
-$firstColor: #dddddd;
+$theme-background-color: #181811;
+$github: #e62872;
+$white: #ffffff;
+$black: #000000;
+$darkblue: #1c1e53;
+$primary: #5e3bee;
+
 $mainColor: #222831;
 $sideColor: #112031;
-$darkColor: #30475e;
 $lightColor: #f05454;
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    scroll-behavior: smooth;
-  }
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
 
-  
-  body {
-    font-family: 'Arial', sans-serif;
-    background-color: $theme-background-color;
-    height: 100%;
 
-  }
+body {
+  font-family: 'Arial', sans-serif;
+  // background-color: $theme-background-color;
+  height: 100%;
 
-  #root {
-    height: 100%;
-  }
-  .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
-  }
+}
 
- 
-  
-  
+#root {
+  height: 100%;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+}
+
+.btn {
+  display: inline-block;
+  padding: 14px 30px;
+  font-size: 16px;
+  font-weight: 400;
+  font-style: normal;
+  text-decoration: none;
+  cursor: pointer;
+  border-radius: 4px;
+  text-align: center;
+  transition: background-color 0.5s;
+}
+
+.btn_outline_primary {
+  color: $theme-main-color;
+  background-color: $white;
+  border: 1px solid $theme-main-color;
+}
+
+.btn_outline_primary:hover {
+  color: $white;
+  background-color: $theme-main-color;
+}
+
+.btn_primary {
+  color: $white;
+  background-color: $theme-main-color;
+  margin: 10px 20px 0 0;
+}
+
+.btn_primary:hover {
+  color: $theme-main-color;
+  background-color: $theme-background-color;
+}
+
+.btn_github {
+  color: $white;
+  background-color: $github;
+  border: $github;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 1px 0 rgb(16, 24, 40, 0.95);
+  gap: 16px;
+
+}
+
+.btn_github:hover {
+  color: $github;
+  background-color: $white;
+}
+
+h1 {
+  font-size: 56px;
+  font-weight: 700;
+  line-height: 67px;
+}
+
+h2 {
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 58px;
+}
+
+h3 {
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 35px;
+}
+
+.text {
+  color: $darkblue;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 27px;
+  font-style: normal;
+}
+
+.hero_section {
+display: grid;
+grid-template-columns: repeat(2, 1fr);
+padding: 133.333px 85.333px 133.333px;
+align-items: center;
+justify-content: space-between;
+gap: 32px;
+// display: flex;
+//     justify-content: space-between;
+//     align-items: center;
+//     padding: 20px 20px;
+}
