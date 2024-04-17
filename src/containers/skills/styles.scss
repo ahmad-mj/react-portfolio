@@ -15,17 +15,27 @@
 
     .skill-category {
         margin-bottom: 40px;
-        border: 1px solid;
+        
 
         h3 {
-            font-size: 24px;
-            margin-bottom: 20px;
+           
+            margin-bottom: -8px;
+    text-align: center;
+    background: cornflowerblue;
+    color: #fff;
+    padding: 25px 0px;
+    font: message-box;
+    border-radius: 5px 4px;
         }
 
         .skills {
             display: flex;
             flex-wrap: wrap;
             gap: 20px;
+    padding: 40px 20px;
+    background: gray;
+    box-shadow: 0 10px 20px 0;
+    border-radius: 5px;
 
             .skill {
                 display: flex;
