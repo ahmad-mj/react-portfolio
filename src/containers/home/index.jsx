@@ -3,6 +3,7 @@ import HeroSection from "./HeroSection";
 import "./styles.scss";
 import Skills from "../skills";
 import Resume from "../resume";
+import Footer from "./Fotter";
 
 const Home = () => {
 return(
@@ -10,6 +11,7 @@ return(
         <HeroSection/>
         <Skills/>
         <Resume/>
+        <Footer/>
     </>
     )
 }
