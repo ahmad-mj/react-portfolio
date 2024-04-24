@@ -1,11 +1,68 @@
 @import '../../global.scss';
-.hero_section {
-position: relative;
-top: 80px;
-.hero_section_img{
-    img{
-        width: 400px;
-        border-radius: 50%;
+
+.hero-section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 50px;
+  background-color: $theme-background-color;
+  color: $mainColor;
+
+  .hero-content {
+    flex: 1;
+    max-width: 50%;
+
+    .hero-text {
+      h1 {
+        font-size: 36px;
+        margin-bottom: 20px;
+        color: $theme-main-color;
+      }
+
+      p {
+        font-size: 18px;
+        margin-bottom: 30px;
+        color: $white;
+      }
+
+      .button-container {
+        display: flex;
+
+        button {
+          padding: 10px 20px;
+          margin-right: 20px;
+          font-size: 16px;
+          border: none;
+          border-radius: 5px;
+          cursor: pointer;
+        }
+
+        .contact-button {
+          background-color: $theme-main-color;
+          color: $mainColor;
+        }
+
+        .cv-button {
+          background-color: $black;
+          color: $mainColor;
+        }
+        .btn:hover {
+          color: $theme-main-color;
+          background-color: $black
+        }
+      }
     }
+  }
+
+  .hero-image {
+    flex: 1;
+    max-width: 50%;
+
+    img {
+      width: 100%;
+      height: auto;
+    }
+  }
 }
-}
+
+  
