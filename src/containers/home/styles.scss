@@ -27,9 +27,9 @@
 
       .button-container {
         display: flex;
-        
+
         button {
-          background-color:$primary_bg;
+          background-color: $primary_bg;
           padding: 10px 20px;
           margin-right: 20px;
           font-size: 16px;
@@ -41,7 +41,7 @@
 
 
         .btn:hover {
-       
+
           background-color: $white;
           color: $primary_bg;
         }
@@ -60,4 +60,29 @@
   }
 }
 
-  
+/* Footer.scss */
+
+.footer {
+  background-color: #333;
+  color: #fff;
+  padding: 20px 0;
+  text-align: center;
+
+  .social-icons {
+    margin-bottom: 20px;
+
+    a {
+      color: #fff;
+      font-size: 24px;
+      margin: 0 10px;
+
+      &:hover {
+        color: #007bff;
+      }
+    }
+  }
+
+  p {
+    margin: 0;
+  }
+}
