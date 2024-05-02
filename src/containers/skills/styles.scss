@@ -1,16 +1,21 @@
+@import '../../global.scss';
+
 .skills-section {
     padding: 50px 0;
 
     .box {
         display: grid;
-        grid-template-columns: 33% 33% 33%;
+        grid-template-columns:  repeat(3, 33%);
         grid-template-rows: auto;
         column-gap: 10px;
+        padding: 20px 50px;
     }
 
     h2 {
         text-align: center;
         margin-bottom: 30px;
+    color: $theme-main-color;
+
     }
 
     .skill-category {
@@ -21,8 +26,8 @@
            
             margin-bottom: -8px;
     text-align: center;
-    background: cornflowerblue;
-    color: #fff;
+    background: $primary_bg;
+    color: $white;
     padding: 25px 0px;
     font: message-box;
     border-radius: 5px 4px;
@@ -33,7 +38,7 @@
             flex-wrap: wrap;
             gap: 20px;
     padding: 40px 20px;
-    background: gray;
+    background: $theme-background-color;
     box-shadow: 0 10px 20px 0;
     border-radius: 5px;
 
@@ -41,7 +46,8 @@
                 display: flex;
                 align-items: center;
                 padding: 10px 20px;
-                background-color: #f5f5f5;
+                background-color: $theme-main-color;
+                color: $black;
                 border-radius: 5px;
 
                 svg {
@@ -57,3 +63,10 @@
         }
     }
 }
+
+  
+@media screen and (min-width:250px) and (max-width:480px) {
+    .box{
+      grid-template-columns: repeat(1,3fr);
+    }
+  }
