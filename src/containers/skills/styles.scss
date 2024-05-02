@@ -26,7 +26,7 @@
            
             margin-bottom: -8px;
     text-align: center;
-    background: $mainColor;
+    background: $primary_bg;
     color: $white;
     padding: 25px 0px;
     font: message-box;
@@ -63,6 +63,8 @@
         }
     }
 }
+
+  
 @media screen and (min-width:250px) and (max-width:480px) {
     .box{
       grid-template-columns: repeat(1,3fr);

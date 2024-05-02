@@ -1,12 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=FAMILY_NAME:wght@WEIGHT_OR_RANGE&display=swap');
 
-$theme-main-color: #ffdd40;
-$theme-background-color: #181811;
+$theme-main-color: #dddd;
+$theme-background-color: #09666c;
 $github: #e62872;
-$white: #ffffff;
+$white: #cbc6c6;
 $black: #000000;
 $darkblue: #1c1e53;
 $primary: #5e3bee;
+$primary_bg:rgb(98 45 27 / 87%);
 
 $mainColor: #222831;
 $sideColor: #112031;
@@ -23,7 +24,6 @@ $lightColor: #f05454;
 body {
   font-family: 'Arial', sans-serif;
   background-color: $theme-background-color;
-  color: $white;
   height: 100%;
 
 }
@@ -62,7 +62,7 @@ p {
 }
 
 .btn_outline_primary {
-  color: $theme-main-color;
+  color: rgb(98 45 27 / 87%);
   background-color: $white;
   border: 1px solid $theme-main-color;
 }
@@ -127,15 +127,4 @@ h3 {
   font-style: normal;
 }
 
-.hero_section {
-display: grid;
-grid-template-columns: repeat(2, 1fr);
-padding: 133.333px 85.333px 133.333px;
-align-items: center;
-justify-content: space-between;
-gap: 32px;
-// display: flex;
-//     justify-content: space-between;
-//     align-items: center;
-//     padding: 20px 20px;
-}
+

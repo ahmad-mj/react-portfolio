@@ -5,8 +5,8 @@
   align-items: center;
   justify-content: space-between;
   padding: 50px;
-  background-color: $theme-background-color;
-  color: $mainColor;
+  background-color: #093133;
+
 
   .hero-content {
     flex: 1;
@@ -22,33 +22,28 @@
       p {
         font-size: 18px;
         margin-bottom: 30px;
-        color: $white;
+        color: $theme-main-color;
       }
 
       .button-container {
         display: flex;
-
+        
         button {
+          background-color:$primary_bg;
           padding: 10px 20px;
           margin-right: 20px;
           font-size: 16px;
           border: none;
           border-radius: 5px;
           cursor: pointer;
+          color: $white;
         }
 
-        .contact-button {
-          background-color: $theme-main-color;
-          color: $mainColor;
-        }
 
-        .cv-button {
-          background-color: $black;
-          color: $mainColor;
-        }
         .btn:hover {
-          color: $theme-main-color;
-          background-color: $black
+       
+          background-color: $white;
+          color: $primary_bg;
         }
       }
     }
