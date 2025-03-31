@@ -9,7 +9,29 @@ import {
   faReact,
 } from "@fortawesome/free-brands-svg-icons";
 import "./styles.scss";
+// to switch themes
+// const switchTheme = (theme) => {
+//   const themes = {
+//     light: {
+//       "--theme-main-color": "#222831",
+//       "--theme-background-color": "#ffffff",
+//       "--primary_bg": "rgb(200, 200, 200, 87%)",
+//     },
+//     dark: {
+//       "--theme-main-color": "#dddd",
+//       "--theme-background-color": "#09666c",
+//       "--primary_bg": "rgb(98 45 27 / 87%)",
+//     }
+//   };
 
+//   Object.keys(themes[theme]).forEach((key) => {
+//     document.documentElement.style.setProperty(key, themes[theme][key]);
+//   });
+// };
+
+// // Example: Add this button somewhere in your UI
+// <button onClick={() => switchTheme("light")}>Light Mode</button>
+// <button onClick={() => switchTheme("dark")}>Dark Mode</button>
 const Skills = () => {
   // Define skill categories with their respective skills and icons
   const skillCategories = [
