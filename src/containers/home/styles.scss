@@ -38,7 +38,7 @@
     .button-container button {
       background: linear-gradient(45deg, #00f2ff, #0077ff);
       padding: 12px 24px;
-      margin-right: 12px;
+      margin:20px 12px 0 0;
       border: none;
       border-radius: 8px;
       font-size: 16px;
@@ -156,4 +156,26 @@
 @keyframes fadeIn {
   from { opacity: 0; }
   to { opacity: 1; }
+}
+
+@media (max-width: 1024px) {
+  .hero-section {
+    flex-direction: column;
+    text-align: center;
+    padding: 30px;
+  }
+
+  .hero-content {
+    max-width: 100%;
+    order: 2; // Moves text below the image
+  }
+
+  .hero-image {
+    max-width: 80%;
+    margin-bottom: 20px;
+  }
+
+  .button-container {
+    justify-content: center;
+  }
 }
