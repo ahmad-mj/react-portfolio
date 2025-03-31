@@ -11,7 +11,7 @@
     font-size: 1.2rem;
     position: absolute;
     top: 0;
-
+    z-index: 1000;
 
     .navbar_container {
         display: flex;
@@ -23,14 +23,12 @@
             color: $theme-main-color;
             cursor: pointer;
         }
-
     }
 
     .navbar_menu {
         display: flex;
         list-style: none;
         text-align: center;
-
 
         .menu_item {
             line-height: 40px;
@@ -44,8 +42,6 @@
                 width: 0;
                 background: transparent;
                 transition: all 0.5s ease;
-
-
             }
 
             &:hover::after {
@@ -53,16 +49,10 @@
                 background: $theme-main-color;
             }
 
-            & .menu_links {
+            .menu_links {
                 color: $theme-main-color;
                 text-decoration: none;
                 padding: 0.5rem;
-
-            }
-
-            &.active {
-                background-color: $black;
-                color: $black;
             }
         }
     }
@@ -77,33 +67,43 @@
 
 @media only screen and (max-width: 768px) {
     .navbar {
+        position: fixed;
+        width: 100%;
+        z-index: 1000;
+
         .navbar_menu {
             display: flex;
             flex-direction: column;
-            width: 100px;
             position: absolute;
             top: 80px;
             left: -110%;
-            opacity: 1;
-            transition: all 0.8s ease;
+            width: 100vw;
+            background: $theme-background-color;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.5s ease-in-out;
+            z-index: 1100;
 
             &.active {
-                background: $theme-background-color;
                 left: 0;
                 opacity: 1;
-                width: 100%;
-
+                visibility: visible;
             }
 
             .menu_item {
-                border: solid 1px $black;
-                margin: 0;
+                border-bottom: 1px solid $black;
                 padding: 20px 0;
-                
-        
-                    &::after {
-                        content:none;
-                    }
+                text-align: center;
+
+                &::after {
+                    content: none;
+                }
+
+                .menu_links {
+                    display: block;
+                    width: 100%;
+                    padding: 15px;
+                }
             }
         }
 
@@ -112,7 +112,7 @@
             cursor: pointer;
             color: $theme-main-color;
             margin: auto 0;
+            z-index: 1100;
         }
-
     }
 }
