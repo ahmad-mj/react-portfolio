@@ -18,18 +18,18 @@ function App() {
   const [init, setInit] = useState(false);
 
   // this should be run only once per application lifetime
-  useEffect(() => {
-    let isMounted = true;
-    initParticlesEngine(async (engine) => {
-      if (isMounted) await loadSlim(engine);
-    }).then(() => isMounted && setInit(true));
+  // useEffect(() => {
+  //   let isMounted = true;
+  //   initParticlesEngine(async (engine) => {
+  //     if (isMounted) await loadSlim(engine);
+  //   }).then(() => isMounted && setInit(true));
   
-    return () => { isMounted = false }; // Cleanup function
-  }, []);
+  //   return () => { isMounted = false }; // Cleanup function
+  // }, []);
 
-  const particlesLoaded = (container) => {
-    console.log(container);
-  };
+  // const particlesLoaded = (container) => {
+  //   console.log(container);
+  // };
 
   return (
     <div className="App">
