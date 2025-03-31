@@ -1,130 +1,24 @@
-@import url('https://fonts.googleapis.com/css2?family=FAMILY_NAME:wght@WEIGHT_OR_RANGE&display=swap');
-
-$theme-main-color: #dddd;
-$theme-background-color: #09666c;
-$github: #e62872;
-$white: #cbc6c6;
-$black: #000000;
-$darkblue: #1c1e53;
-$primary: #5e3bee;
-$primary_bg:rgb(98 45 27 / 87%);
-
-$mainColor: #222831;
-$sideColor: #112031;
-$lightColor: #f05454;
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  scroll-behavior: smooth;
+:root {
+  --theme-main-color: #dddd;
+  --theme-background-color: #09666c;
+  --github: #e62872;
+  --white: #cbc6c6;
+  --black: #000000;
+  --darkblue: #1c1e53;
+  --primary: #5e3bee;
+  --primary_bg: rgb(98 45 27 / 87%);
+  --mainColor: #222831;
+  --sideColor: #112031;
+  --lightColor: #f05454;
 }
-
 
 body {
   font-family: 'Arial', sans-serif;
-  background-color: $theme-background-color;
-  height: 100%;
-
-}
-
-#root {
+  background-color: var(--theme-background-color);
+  color: var(--mainColor);
   height: 100%;
 }
 
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 20px;
+h1, h2, h3, h4, h5, h6 {
+  color: var(--theme-main-color);
 }
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p {
-  margin: 0;
-}
-
-.btn {
-  display: inline-block;
-  padding: 14px 30px;
-  font-size: 16px;
-  font-weight: 400;
-  font-style: normal;
-  text-decoration: none;
-  cursor: pointer;
-  border-radius: 4px;
-  text-align: center;
-  transition: background-color 0.5s;
-}
-
-.btn_outline_primary {
-  color: rgb(98 45 27 / 87%);
-  background-color: $white;
-  border: 1px solid $theme-main-color;
-}
-
-.btn_outline_primary:hover {
-  color: $white;
-  background-color: $theme-main-color;
-}
-
-.btn_primary {
-  color: $white;
-  background-color: $theme-main-color;
-  margin: 10px 20px 0 0;
-}
-
-.btn_primary:hover {
-  color: $theme-main-color;
-  background-color: $theme-background-color;
-}
-
-.btn_github {
-  color: $white;
-  background-color: $github;
-  border: $github;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  box-shadow: 0 1px 0 rgb(16, 24, 40, 0.95);
-  gap: 16px;
-
-}
-
-.btn_github:hover {
-  color: $github;
-  background-color: $white;
-}
-
-h1 {
-  font-size: 56px;
-  font-weight: 700;
-  line-height: 67px;
-}
-
-h2 {
-  font-size: 48px;
-  font-weight: 700;
-  line-height: 58px;
-}
-
-h3 {
-  font-size: 24px;
-  font-weight: 700;
-  line-height: 35px;
-}
-
-.text {
-  color: $darkblue;
-  font-size: 18px;
-  font-weight: 400;
-  line-height: 27px;
-  font-style: normal;
-}
-
-
