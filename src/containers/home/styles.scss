@@ -52,12 +52,26 @@
   .hero-image {
     flex: 1;
     max-width: 50%;
-
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
     img {
-      width: 100%;
-      height: auto;
+      width: 250px;
+      height: 250px;
+      border-radius: 50%;
+      object-fit: cover;
+      box-shadow: 0 0 15px rgba(0, 255, 255, 0.6);
+      animation: float 4s ease-in-out infinite, fadeIn 1.5s ease-in-out;
+      transition: transform 0.3s ease-in-out;
+    }
+  
+    img:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 25px rgba(0, 255, 255, 0.9);
     }
   }
+  
 }
 
 /* Footer.scss */
@@ -85,4 +99,39 @@
   p {
     margin: 0;
   }
+}
+.profile-pic-container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.profile-pic {
+  width: 250px; //
+  height: 250px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 0 15px rgba(0, 255, 255, 0.6); // Neon glow effect
+  animation: float 4s ease-in-out infinite, fadeIn 1.5s ease-in-out;
+  transition: transform 0.3s ease-in-out;
+}
+
+.profile-pic:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 25px rgba(0, 255, 255, 0.9);
+}
+
+// Floating effect
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-5px); }
+  100% { transform: translateY(0px); }
+}
+
+// Fade-in effect
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
