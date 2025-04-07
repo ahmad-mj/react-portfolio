@@ -19,84 +19,39 @@ const Skills = () => {
     AOS.init({ duration: 1000 });
   }, []);
   // Define skill categories with their respective skills and icons
+  const skillsData = [
+    { name: "HTML", icon: faHtml5, categories: ["Front-End"] },
+    { name: "CSS", icon: faCss3Alt, categories: ["Front-End"] },
+    { name: "Sass", icon: faSass, categories: ["Front-End", "Dev-Tools"] },
+    { name: "Bootstrap", icon: faBootstrap, categories: ["Front-End"] },
+    { name: "JavaScript", icon: faJs, categories: ["Front-End", "Back-End"] },
+    { name: "React", icon: faReact, categories: ["Front-End", "Back-End"] },
+    // Add more and expand categories as needed
+  ];
   const skillCategories = [
     {
       category: "Front-End",
-      skills: [
-        { name: "HTML", icon: faHtml5 },
-        { name: "CSS", icon: faCss3Alt },
-        { name: "Sass", icon: faSass },
-        { name: "Bootstrap", icon: faBootstrap },
-        { name: "JavaScript", icon: faJs },
-        { name: "ES6/ES7", icon: faJs },
-        { name: "React", icon: faReact },
-        { name: "React Hooks/Best Practices", icon: faReact },
-      ],
+      skills: skillsData,
     },
     {
       category: "Back-End",
-      skills: [
-        { name: "HTML", icon: faHtml5 },
-        { name: "CSS", icon: faCss3Alt },
-        { name: "Sass", icon: faSass },
-        { name: "Bootstrap", icon: faBootstrap },
-        { name: "JavaScript", icon: faJs },
-        { name: "ES6/ES7", icon: faJs },
-        { name: "React", icon: faReact },
-        { name: "React Hooks/Best Practices", icon: faReact },
-      ],
+      skills: skillsData,
     },
     {
       category: "Data-Base",
-      skills: [
-        { name: "HTML", icon: faHtml5 },
-        { name: "CSS", icon: faCss3Alt },
-        { name: "Sass", icon: faSass },
-        { name: "Bootstrap", icon: faBootstrap },
-        { name: "JavaScript", icon: faJs },
-        { name: "ES6/ES7", icon: faJs },
-        { name: "React", icon: faReact },
-        { name: "React Hooks/Best Practices", icon: faReact },
-      ],
+      skills: skillsData,
     },
     {
       category: "Dev-Ops/deploy",
-      skills: [
-        { name: "HTML", icon: faHtml5 },
-        { name: "CSS", icon: faCss3Alt },
-        { name: "Sass", icon: faSass },
-        { name: "Bootstrap", icon: faBootstrap },
-        { name: "JavaScript", icon: faJs },
-        { name: "ES6/ES7", icon: faJs },
-        { name: "React", icon: faReact },
-        { name: "React Hooks/Best Practices", icon: faReact },
-      ],
+      skills: skillsData,
     },
     {
       category: "Dev-Tools",
-      skills: [
-        { name: "HTML", icon: faHtml5 },
-        { name: "CSS", icon: faCss3Alt },
-        { name: "Sass", icon: faSass },
-        { name: "Bootstrap", icon: faBootstrap },
-        { name: "JavaScript", icon: faJs },
-        { name: "ES6/ES7", icon: faJs },
-        { name: "React", icon: faReact },
-        { name: "React Hooks/Best Practices", icon: faReact },
-      ],
+      skills: skillsData,
     },
     {
       category: "Team Management",
-      skills: [
-        { name: "HTML", icon: faHtml5 },
-        { name: "CSS", icon: faCss3Alt },
-        { name: "Sass", icon: faSass },
-        { name: "Bootstrap", icon: faBootstrap },
-        { name: "JavaScript", icon: faJs },
-        { name: "ES6/ES7", icon: faJs },
-        { name: "React", icon: faReact },
-        { name: "React Hooks/Best Practices", icon: faReact },
-      ],
+      skills: skillsData,
     },
   ];
 
