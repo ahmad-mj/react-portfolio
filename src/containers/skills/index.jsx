@@ -1,4 +1,5 @@
-import React from "react";
+import {React,  useEffect}  from "react";
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faHtml5,
@@ -9,8 +10,14 @@ import {
   faReact,
 } from "@fortawesome/free-brands-svg-icons";
 import "./styles.scss";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const Skills = () => {
+
+  useEffect(() => {
+    AOS.init({ duration: 1000 });
+  }, []);
   // Define skill categories with their respective skills and icons
   const skillCategories = [
     {
@@ -98,7 +105,7 @@ const Skills = () => {
       <h2>Skills</h2>
       <div className="box">
         {skillCategories.map((category, index) => (
-          <div key={index} className="skill-category">
+          <div key={index} className="skill-category" data-aos="fade-up">
             <h3>{category.category}</h3>
             <div className="skills">
               {category.skills.map((skill, index) => (
