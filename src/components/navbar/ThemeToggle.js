@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from "react";
+import { FaSun, FaMoon } from "react-icons/fa";
+
 
 const ThemeToggle = () => {
   const [theme, setTheme] = useState(localStorage.getItem("selectedTheme") || "dark");
@@ -24,8 +26,8 @@ const ThemeToggle = () => {
       },
     };
 
-    Object.keys(themes[theme]).forEach((key) => {
-      document.documentElement.style.setProperty(key, themes[theme][key]);
+    Object.entries(themes[theme]).forEach(([key, value]) => {
+      document.documentElement.style.setProperty(key, value);
     });
   };
 
@@ -36,7 +38,9 @@ const ThemeToggle = () => {
   return (
     <label className="theme-switch">
       <input type="checkbox" checked={theme === "light"} onChange={switchTheme} />
-      <span className="slider"></span>
+      <span className="slider">
+        {theme === "light" ? <FaSun className="icon sun" /> : <FaMoon className="icon moon" />}
+      </span>
     </label>
   );
 };
