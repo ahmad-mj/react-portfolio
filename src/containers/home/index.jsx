@@ -1,7 +1,7 @@
 import React from "react";
 import HeroSection from "./HeroSection";
 import "./styles.scss";
-import Skills from "../skills";
+import Skills from "../TrainingPrograms/TrainingPrograms";
 import Resume from "../resume";
 import Footer from "./Footer";
 
