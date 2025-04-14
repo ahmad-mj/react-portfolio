@@ -1,11 +1,11 @@
 import en from '../de.json';
 import de from '../en.json';
 
-const locales = {
-  en,
-  de
-};
+import { useLanguage } from '../context/LanguageContext';
 
-export const useTranslation = (lang = 'en') => {
-  return locales[lang] || locales.en;
+const locales = { en, de };
+
+export const useTranslation = () => {
+  const { language } = useLanguage();
+  return locales[language] || locales.en;
 };
