@@ -1,15 +1,35 @@
+@import url('https://fonts.googleapis.com/css2?family=FAMILY_NAME:wght@WEIGHT_OR_RANGE&display=swap');
+
+// THEME VARIABLES
 :root {
-  --theme-main-color: #dddd;
-  --theme-background-color: #09666c;
-  --github: #e62872;
-  --white: #cbc6c6;
+  --theme-main-color: #222831;
+  --theme-background-color: #f4f4f4;
+  --github: #e94e77;
+  --white: #ffffff;
   --black: #000000;
-  --darkblue: #1c1e53;
+  --darkblue: #3a4750;
   --primary: #5e3bee;
-  --primary_bg: rgb(98 45 27 / 87%);
-  --mainColor: #222831;
-  --sideColor: #112031;
-  --lightColor: #f05454;
+  --primary_bg: #ece9f1;
+
+  --mainColor: #393e46;
+  --sideColor: #eeeeee;
+  --lightColor: #00adb5;
+}
+
+// DARK THEME
+body.dark {
+  --theme-main-color: #f4f4f4;
+  --theme-background-color: #121212;
+  --github: #ff5c8a;
+  --white: #e0e0e0;
+  --black: #181818;
+  --darkblue: #232931;
+  --primary: #bd93f9;
+  --primary_bg: #1e1e2f;
+
+  --mainColor: #dddddd;
+  --sideColor: #2c2c2c;
+  --lightColor: #00fff5;
 }
 
 body {
@@ -22,6 +42,7 @@ body {
 h1, h2, h3, h4, h5, h6 {
   color: var(--theme-main-color);
 }
+
 .theme-switch {
   position: relative;
   display: inline-block;
@@ -35,7 +56,7 @@ h1, h2, h3, h4, h5, h6 {
   }
 
   .slider {
-    background-color: #cbc6c6;
+    background-color: var(--white);
     border-radius: 34px;
     cursor: pointer;
     position: absolute;
@@ -56,19 +77,18 @@ h1, h2, h3, h4, h5, h6 {
     }
 
     .moon {
-      color: #5e3bee;
+      color: var(--primary);
     }
   }
 
   input:checked + .slider {
-    background-color: #09666c;
+    background-color: var(--theme-main-color);
   }
 
   .slider:hover {
-    box-shadow: 0 0 8px rgba(255, 255, 255, 0.3);
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
   }
 
-  // Hide toggle on screens narrower than 768px
   @media screen and (max-width: 768px) {
     display: none;
   }
