@@ -25,6 +25,20 @@
         { "name": "Nicht Bellen", "icon": "faVolumeMute" },
         { "name": "Nicht Ziehen", "icon": "faPersonWalking" }
       ]
+    },
+    {
+      "category": "Welpen Training",
+      "skills": [
+        { "name": "Potty Training", "icon": "faToilet" },
+        { "name": "Crate Training", "icon": "faBox" }
+      ]
+    },
+    {
+      "category": "Fortgeschrittene Fähigkeiten",
+      "skills": [
+        { "name": "Off-Leash Obedience", "icon": "faArrowRightToBracket" },
+        { "name": "Emergency Stop", "icon": "faPause" }
+      ]
     }
   ],
   "contact": {
