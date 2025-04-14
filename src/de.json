@@ -1,0 +1,36 @@
+{
+  "hero": {
+    "title": "Stärken Sie Ihren Hund",
+    "subtitle": "Professionelles Hundetraining für alle Rassen",
+    "cta": "Jetzt Training starten"
+  },
+  "about": {
+    "title": "Über Uns",
+    "description": "Wir sind leidenschaftliche Trainer, die sich darauf konzentrieren, die Bindung zwischen Mensch und Hund durch positive Verstärkung zu stärken."
+  },
+  "trainingPrograms": [
+    {
+      "category": "Grundgehorsam",
+      "skills": [
+        { "name": "Sitz", "icon": "faHandPeace" },
+        { "name": "Bleib", "icon": "faPause" },
+        { "name": "Komm", "icon": "faArrowRightToBracket" },
+        { "name": "Fuß", "icon": "faPersonWalking" }
+      ]
+    },
+    {
+      "category": "Verhaltenskorrektur",
+      "skills": [
+        { "name": "Nicht Springen", "icon": "faBan" },
+        { "name": "Nicht Bellen", "icon": "faVolumeMute" },
+        { "name": "Nicht Ziehen", "icon": "faPersonWalking" }
+      ]
+    }
+  ],
+  "contact": {
+    "title": "Kontaktieren Sie Uns",
+    "email": "train@doghero.com",
+    "phone": "+1 (555) 123-4567",
+    "address": "123 Hundegasse, Hundstadt, DE"
+  }
+}
