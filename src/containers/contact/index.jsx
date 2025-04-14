@@ -1,8 +1,8 @@
 import React from 'react';
-import content from '../../content.json';
+import { useTranslation } from '../../hooks/useTranslation';
 
-const Contact = () => {
-  const { title, email, phone, address } = content.contact;
+const Contact = ({ lang = 'en'}) => {
+  const { title, email, phone, address } = useTranslation(lang).contact;
 
   return (
     <section className="contact">

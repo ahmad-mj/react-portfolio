@@ -1,17 +1,18 @@
 import React from "react";
-import content from '../../content.json';
+import { useTranslation } from '../../hooks/useTranslation';
 
-const HeroSection = () => {
-const { title, subtitle, cta } = content.hero;
+const HeroSection = ({ lang = 'en'}) => {
+const t = useTranslation(lang).hero;
+
 
 return(
   <section className="hero-section">
   <div className="hero-content">
     <div className="hero-text">
-      <h1>{title}</h1>
-      <p>{subtitle}</p>
+      <h1>{t.title}</h1>
+      <p>{t.subtitle}</p>
       <div className="button-container">
-        <button onClick={() => window.location.href = "#contact"}>{cta}</button>
+        <button onClick={() => window.location.href = "#contact"}>{t.cta}</button>
         <button onClick={() => window.open("/resume.pdf", "_blank")}>See CV</button>
       </div>
     </div>

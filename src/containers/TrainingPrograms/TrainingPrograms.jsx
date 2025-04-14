@@ -1,5 +1,4 @@
 import React from "react";
-import content from "../../content.json";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faHandPeace,
@@ -10,6 +9,7 @@ import {
   faBan,
 } from "@fortawesome/free-solid-svg-icons";
 import "./styles.scss";
+import { useTranslation } from "../../hooks/useTranslation";
 
 const iconMap = {
   faHandPeace,
@@ -20,8 +20,8 @@ const iconMap = {
   faBan,
 };
 
-const TrainingPrograms = () => {
-  const trainingPrograms = content.trainingPrograms;
+const TrainingPrograms = ({ lang = 'en' }) => {
+  const trainingPrograms = useTranslation(lang).trainingPrograms;
 
   return (
     <section id="training" className="skills-section">
