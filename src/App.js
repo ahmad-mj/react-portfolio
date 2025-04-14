@@ -11,6 +11,10 @@ import Particles, { initParticlesEngine } from "@tsparticles/react";
 import { loadSlim } from "@tsparticles/slim";
 import { useEffect, useState } from "react";
 import options from "./utils/particles";
+import LanguageToggle from "./components/languageToggle";
+import { LanguageProvider } from "./context/LanguageContext";
+
+
 function App() {
   const location = useLocation();
   const homePage = location.pathname === '/';
@@ -32,6 +36,7 @@ function App() {
   // };
 
   return (
+      <LanguageProvider>
     <div className="App">
       {/* {(init && homePage &&
         <Particles
@@ -40,6 +45,7 @@ function App() {
           options={options}
         />
       )} */}
+      <LanguageToggle />
       <Navbar />
       <Routes>
         <Route path="/" Component={Home} />
@@ -49,6 +55,7 @@ function App() {
         <Route path="/portfolio" Component={Portfolio} />
       </Routes>
     </div>
+    </LanguageProvider>
   );
 }
 
