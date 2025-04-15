@@ -93,3 +93,38 @@ h1, h2, h3, h4, h5, h6 {
     display: none;
   }
 }
+
+// LanguageToggle
+.language-toggle {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  z-index: 100000;
+
+  button {
+    background-color: transparent;
+    border: 2px solid var(--theme-main-color);
+    color: var(--theme-main-color);
+    padding: 6px 12px;
+    font-size: 14px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+    &:hover {
+      background-color: var(--theme-main-color);
+      color: var(--theme-background-color);
+    }
+  }
+
+  @media (max-width: 768px) {
+    position: fixed;
+    top: 15px;
+    left: 15px;
+    
+    button {
+      font-size: 12px;
+      padding: 5px 10px;
+    }
+  }
+}
