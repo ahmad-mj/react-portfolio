@@ -1,23 +1,26 @@
 import React from "react";
-const HeroSection = () => {
+import { useTranslation } from '../../hooks/useTranslation';
+
+const HeroSection = ({ lang = 'en'}) => {
+const t = useTranslation(lang).hero;
+
+
 return(
-    <div id="heroSection" className="hero_section">
-        <div className="content_box">
-            <div className="content">
-                <p className="title">Hey, I'm Ahmad</p>
-                <h1 className="hero_section_title">
-                    <span className="hero_section_title_color">Full Stack</span>
-                    <br />
-                    Developer
-                </h1>
-            </div>
-            <button className="btn btn_primary">Get in Touch</button>
-            <button className="btn btn_primary">Download CV</button>
-        </div>
-        <div className="hero_section_img">
-            <img src="./img/hero_img.jpg" alt="Hero Section" />
-        </div>
+  <section className="hero-section">
+  <div className="hero-content">
+    <div className="hero-text">
+      <h1>{t.title}</h1>
+      <p>{t.subtitle}</p>
+      <div className="button-container">
+        <button onClick={() => window.location.href = "#contact"}>{t.cta}</button>
+        <button onClick={() => window.open("/resume.pdf", "_blank")}>See CV</button>
+      </div>
     </div>
+  </div>
+  <div className="hero-image">
+    <img src="img/hero_img.jpg" alt="Ahmad" />
+  </div>
+</section>
     )
 }
 export default HeroSection;

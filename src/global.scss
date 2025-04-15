@@ -1,140 +1,130 @@
 @import url('https://fonts.googleapis.com/css2?family=FAMILY_NAME:wght@WEIGHT_OR_RANGE&display=swap');
 
-$theme-main-color: #ffdd40;
-$theme-background-color: #181811;
-$github: #e62872;
-$white: #ffffff;
-$black: #000000;
-$darkblue: #1c1e53;
-$primary: #5e3bee;
+// THEME VARIABLES
+:root {
+  --theme-main-color: #222831;
+  --theme-background-color: #f4f4f4;
+  --github: #e94e77;
+  --white: #ffffff;
+  --black: #000000;
+  --darkblue: #3a4750;
+  --primary: #5e3bee;
+  --primary_bg: #ece9f1;
 
-$mainColor: #222831;
-$sideColor: #112031;
-$lightColor: #f05454;
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  scroll-behavior: smooth;
+  --mainColor: #393e46;
+  --sideColor: #eeeeee;
+  --lightColor: #00adb5;
 }
 
+// DARK THEME
+body.dark {
+  --theme-main-color: #f4f4f4;
+  --theme-background-color: #121212;
+  --github: #ff5c8a;
+  --white: #e0e0e0;
+  --black: #181818;
+  --darkblue: #232931;
+  --primary: #bd93f9;
+  --primary_bg: #1e1e2f;
+
+  --mainColor: #dddddd;
+  --sideColor: #2c2c2c;
+  --lightColor: #00fff5;
+}
 
 body {
   font-family: 'Arial', sans-serif;
-  // background-color: $theme-background-color;
-  height: 100%;
-
-}
-
-#root {
+  background-color: var(--theme-background-color);
+  color: var(--mainColor);
   height: 100%;
 }
 
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 20px;
+h1, h2, h3, h4, h5, h6 {
+  color: var(--theme-main-color);
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p {
-  margin: 0;
-}
-
-.btn {
+.theme-switch {
+  position: relative;
   display: inline-block;
-  padding: 14px 30px;
-  font-size: 16px;
-  font-weight: 400;
-  font-style: normal;
-  text-decoration: none;
-  cursor: pointer;
-  border-radius: 4px;
-  text-align: center;
-  transition: background-color 0.5s;
+  width: 60px;
+  height: 30px;
+
+  input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+
+  .slider {
+    background-color: var(--white);
+    border-radius: 34px;
+    cursor: pointer;
+    position: absolute;
+    inset: 0;
+    transition: background-color 0.4s ease;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 6px;
+
+    .icon {
+      font-size: 16px;
+      transition: transform 0.3s ease, color 0.3s ease;
+    }
+
+    .sun {
+      color: #f5c518;
+    }
+
+    .moon {
+      color: var(--primary);
+    }
+  }
+
+  input:checked + .slider {
+    background-color: var(--theme-main-color);
+  }
+
+  .slider:hover {
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+  }
+
+  @media screen and (max-width: 768px) {
+    display: none;
+  }
 }
 
-.btn_outline_primary {
-  color: $theme-main-color;
-  background-color: $white;
-  border: 1px solid $theme-main-color;
-}
+// LanguageToggle
+.language-toggle {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  z-index: 100000;
 
-.btn_outline_primary:hover {
-  color: $white;
-  background-color: $theme-main-color;
-}
+  button {
+    background-color: transparent;
+    border: 2px solid var(--theme-main-color);
+    color: var(--theme-main-color);
+    padding: 6px 12px;
+    font-size: 14px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s ease;
 
-.btn_primary {
-  color: $white;
-  background-color: $theme-main-color;
-  margin: 10px 20px 0 0;
-}
+    &:hover {
+      background-color: var(--theme-main-color);
+      color: var(--theme-background-color);
+    }
+  }
 
-.btn_primary:hover {
-  color: $theme-main-color;
-  background-color: $theme-background-color;
-}
-
-.btn_github {
-  color: $white;
-  background-color: $github;
-  border: $github;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  box-shadow: 0 1px 0 rgb(16, 24, 40, 0.95);
-  gap: 16px;
-
-}
-
-.btn_github:hover {
-  color: $github;
-  background-color: $white;
-}
-
-h1 {
-  font-size: 56px;
-  font-weight: 700;
-  line-height: 67px;
-}
-
-h2 {
-  font-size: 48px;
-  font-weight: 700;
-  line-height: 58px;
-}
-
-h3 {
-  font-size: 24px;
-  font-weight: 700;
-  line-height: 35px;
-}
-
-.text {
-  color: $darkblue;
-  font-size: 18px;
-  font-weight: 400;
-  line-height: 27px;
-  font-style: normal;
-}
-
-.hero_section {
-display: grid;
-grid-template-columns: repeat(2, 1fr);
-padding: 133.333px 85.333px 133.333px;
-align-items: center;
-justify-content: space-between;
-gap: 32px;
-// display: flex;
-//     justify-content: space-between;
-//     align-items: center;
-//     padding: 20px 20px;
+  @media (max-width: 768px) {
+    position: fixed;
+    top: 15px;
+    left: 15px;
+    
+    button {
+      font-size: 12px;
+      padding: 5px 10px;
+    }
+  }
 }

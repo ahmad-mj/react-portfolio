@@ -5,12 +5,16 @@ import Home from "./containers/home";
 import Contact from "./containers/contact";
 import Portfolio from "./containers/portfolio";
 import Resume from "./containers/resume";
-import Skills from "./containers/skills";
+import Skills from "./containers/TrainingPrograms/TrainingPrograms";
 import Navbar from "./components/navbar";
 import Particles, { initParticlesEngine } from "@tsparticles/react";
 import { loadSlim } from "@tsparticles/slim";
 import { useEffect, useState } from "react";
 import options from "./utils/particles";
+import LanguageToggle from "./components/languageToggle";
+import { LanguageProvider } from "./context/LanguageContext";
+
+
 function App() {
   const location = useLocation();
   const homePage = location.pathname === '/';
@@ -18,19 +22,21 @@ function App() {
   const [init, setInit] = useState(false);
 
   // this should be run only once per application lifetime
-  useEffect(() => {
-    initParticlesEngine(async (engine) => {
-      await loadSlim(engine);
-    }).then(() => {
-      setInit(true);
-    });
-  }, []);
+  // useEffect(() => {
+  //   let isMounted = true;
+  //   initParticlesEngine(async (engine) => {
+  //     if (isMounted) await loadSlim(engine);
+  //   }).then(() => isMounted && setInit(true));
+  
+  //   return () => { isMounted = false }; // Cleanup function
+  // }, []);
 
-  const particlesLoaded = (container) => {
-    console.log(container);
-  };
+  // const particlesLoaded = (container) => {
+  //   console.log(container);
+  // };
 
   return (
+      <LanguageProvider>
     <div className="App">
       {/* {(init && homePage &&
         <Particles
@@ -39,6 +45,7 @@ function App() {
           options={options}
         />
       )} */}
+      <LanguageToggle />
       <Navbar />
       <Routes>
         <Route path="/" Component={Home} />
@@ -48,6 +55,7 @@ function App() {
         <Route path="/portfolio" Component={Portfolio} />
       </Routes>
     </div>
+    </LanguageProvider>
   );
 }
 
