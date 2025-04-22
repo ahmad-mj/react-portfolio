@@ -1,3 +1,39 @@
+# 🐾 Dog Training Platform
+
+A full-stack web application for promoting a dog training business. Built to be flexible, modern, and a personal learning playground. Fully multilingual, contact-capable, and scalable.
+
+---
+
+## ✨ Features
+
+- 🌐 React frontend with SCSS and responsive design
+- 🌙 Light/Dark theme support
+- 🌍 Multilingual (English + German) via `i18n`
+- 📬 Contact form with backend email support
+- 🔐 Environment-variable based config
+- 🧠 Learn-by-doing backend using Express + Mailgun
+
+---
+
+## 🛠 Tech Stack
+
+### Frontend
+- React
+- SCSS
+- i18next (for translations)
+- LocalStorage (language persistence)
+
+### Backend
+- Node.js
+- Express
+- Nodemailer (Mailgun SMTP)
+- dotenv
+- CORS
+
+---
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
