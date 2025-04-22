@@ -1,76 +1,38 @@
-import React, { useState, useRef } from "react";
-import emailjs from "emailjs-com";
+import React, { useState } from "react";
 import "./styles.scss";
-import emailConfig from "../../utils/emailConfig";
+import { sendContactForm } from "../services/contactService";
 
 const Contact = () => {
-  const [formData, setFormData] = useState({
-    user_name: "",
-    user_email: "",
-    message: "",
-  });
-  const form = useRef();
-
-
-  const sendEmail = (e) => {
-    e.preventDefault();
-
-    emailjs
-      .sendForm(
-        emailConfig.SERVICE_ID,
-        emailConfig.TEMPLATE_ID,
-        form.current,
-        {
-          publicKey: emailConfig.PUBLIC_KEY,
-        }
-      )
-      .then(
-        () => {
-          console.log("SUCCESS!");
-        },
-        (error) => {
-          console.log("FAILED...", error.text);
-        }
-      );
-  }
-
-  // const [submitted, setSubmitted] = useState(false);
+  const [form, setForm] = useState({ name: "", email: "", message: "" });
+  const [status, setStatus] = useState({ success: null, message: "" });
 
   const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+    const { name, value } = e.target;
+    setForm((prev) => ({ ...prev, [name]: value }));
   };
 
-  // const sendEmail = (e) => {
-  //   e.prevefault();
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setStatus({ success: null, message: "" });
 
-  //   emailjs
-  //     .send(
-  //       emailConfig.SERVICE_ID,
-  //       emailConfig.TEMPLATE_ID,
-  //       formData.current,
-  //       emailConfig.PUBLIC_KEY,
-
-  //     )
-  //     .then(
-  //       (result) => {
-  //         console.log("SUCCESS!", result.text);
-  //         setSubmitted(true);
-  //       },
-  //       (error) => {
-  //         console.log('FAILED...', error.text);
-  //       }
-  //     );
-  // };
+    try {
+      const result = await sendContactForm(form);
+      setStatus({ success: true, message: result.message });
+      setForm({ name: "", email: "", message: "" });
+    } catch (error) {
+      setStatus({ success: false, message: error.message });
+    }
+  };
 
   return (
     <section className="contact-section" id="contact">
       <h2>Contact Me</h2>
-      <form className="contact-form" onSubmit={sendEmail}>
+      <form className="contact-form" onSubmit={handleSubmit}>
         <input
           type="text"
           name="user_name"
           placeholder="Your Name"
-          value={formData.user_name}
+          value={form.name}
           onChange={handleChange}
           required
         />
@@ -78,22 +40,25 @@ const Contact = () => {
           type="email"
           name="user_email"
           placeholder="Your Email"
-          value={formData.user_email}
+          value={form.email}
           onChange={handleChange}
           required
         />
         <textarea
           name="message"
           placeholder="Your Message"
-          value={formData.message}
+          value={form.message}
           onChange={handleChange}
           required
         />
         <button type="submit" className="btn btn_primary">
           Send
         </button>
-        {sendEmail && (
-          <p className="success-msg">Thanks! I’ll get back to you soon.</p>
+        {status.message && (
+          <p className={status.success ? "success" : "error"}>
+            {" "}
+            {status.message}{" "}
+          </p>
         )}
       </form>
     </section>
