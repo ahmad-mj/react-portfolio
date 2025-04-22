@@ -6,14 +6,15 @@ router.post("/", async (req, res) => {
     console.log('Request body: ', req.body);
     
   const { name, email, message } = req.body;
-
+  
+  const testAccount = await nodemailer.createTestAccount();
   const transporter = nodemailer.createTransport({
-    host: process.env.EMAIL_HOST,
+    host: 'smtp.ethereal.email',
     port: 587,
     secure: false,
     auth: {
-      user: process.env.EMAIL_USER,
-      pass: process.env.EMAIL_PASS,
+      user: testAccount.user,
+      pass: testAccount.pass,
     },
   });
 
