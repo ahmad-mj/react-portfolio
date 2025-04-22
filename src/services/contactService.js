@@ -2,7 +2,7 @@ const API_BASE_URL = process.env.REACT_APP_API_BASE_URL;
 
 export const sendContactForm = async ({name, email, message}) => {
     try {
-        const response = await fetch(`${API_BASE_URL}/contacat`, {
+        const response = await fetch(`${API_BASE_URL}/contact`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
