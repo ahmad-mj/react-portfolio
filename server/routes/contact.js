@@ -1,27 +1,36 @@
 const express = require("express");
 const nodemailer = require("nodemailer");
 const router = express.Router();
-
+router.get('/test', (req,res)=>{
+  res.send('Contact API is working');
+})
 router.post("/", async (req, res) => {
     console.log('Request body: ', req.body);
     
   const { name, email, message } = req.body;
   
+  // const transporter = nodemailer.createTransport({
+  //   host: process.env.HOST,
+  //   port: 587,
+  //   secure: false,
+  //   auth: {
+  //     user: process.env.EMAIL_USER,
+  //     pass: process.env.EMAIL_PASS,
+  //   },
+  // });
   const testAccount = await nodemailer.createTestAccount();
   const transporter = nodemailer.createTransport({
     host: 'smtp.ethereal.email',
     port: 587,
-    secure: false,
     auth: {
       user: testAccount.user,
       pass: testAccount.pass,
     },
   });
-
   const mailOptions = {
     from: email,
     to: process.env.EMAIL_USER,
-    subject: `Dog Training Contact from${name}`,
+    subject: `Dog Training Contact from ${name}`,
     text: message,
   };
 
