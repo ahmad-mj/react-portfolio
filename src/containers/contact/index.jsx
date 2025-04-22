@@ -55,10 +55,7 @@ const Contact = () => {
           Send
         </button>
         {status.message && (
-          <p className={status.success ? "success" : "error"}>
-            {" "}
-            {status.message}{" "}
-          </p>
+          <p className={status.success ? "success" : "error"}>{status.message}</p>
         )}
       </form>
     </section>
