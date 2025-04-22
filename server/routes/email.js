@@ -6,7 +6,9 @@ router.post('/', async (req, res) => {
     const { name, email, message } = req.body;
 
     const transporter = nodemailer.createTransport({
-        service: '', //choose oneq
+        host: process.env.EMAIL_HOST,
+        port: 587,
+        secure: false,
         auth: {
             user: process.env.EMAIL_USER,
             pass: process.env.EMAIL_PASS,
