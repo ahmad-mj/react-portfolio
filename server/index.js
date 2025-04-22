@@ -1,21 +1,23 @@
-const express = require('express');
-const cors = require('cors');
-const dotenv = require('dotenv');
+const express = require("express");
+const cors = require("cors");
+const dotenv = require("dotenv");
 const app = express();
-const emailRoute = require('.routes/emails');
-app.use('/api/email', emailRoute);
+const emailRoute = require("./routes/email");
+
+console.log(typeof emailRoute); // should be 'function'
 
 //load environment variables
-dotenv.config()
+dotenv.config();
 
 // middelware
-app.use();
 app.use(express.json());
-
+app.use(cors());
 // basic route
-app.get('/', (req, res) => {
-    res.send('Backend is running')
+app.get("/", (req, res) => {
+  res.send("Backend is running");
 });
+
+app.use("/api/email", emailRoute);
 
 // Start server
 const PORT = process.env.Port || 5000;
