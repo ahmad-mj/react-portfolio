@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./styles.scss";
-import { sendContactForm } from "../services/contactService";
+import { sendContactForm } from "../../services/contactService";
 
 const Contact = () => {
   const [form, setForm] = useState({ name: "", email: "", message: "" });
@@ -30,7 +30,7 @@ const Contact = () => {
       <form className="contact-form" onSubmit={handleSubmit}>
         <input
           type="text"
-          name="user_name"
+          name="name"
           placeholder="Your Name"
           value={form.name}
           onChange={handleChange}
@@ -38,7 +38,7 @@ const Contact = () => {
         />
         <input
           type="email"
-          name="user_email"
+          name="email"
           placeholder="Your Email"
           value={form.email}
           onChange={handleChange}
