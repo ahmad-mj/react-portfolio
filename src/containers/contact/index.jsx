@@ -1,17 +1,63 @@
-import React from 'react';
-import { useTranslation } from '../../hooks/useTranslation';
+import React, { useState } from "react";
+import "./styles.scss";
+import { sendContactForm } from "../../services/contactService";
 
-const Contact = ({ lang = 'en'}) => {
-  const { title, email, phone, address } = useTranslation(lang).contact;
+const Contact = () => {
+  const [form, setForm] = useState({ name: "", email: "", message: "" });
+  const [status, setStatus] = useState({ success: null, message: "" });
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setForm((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setStatus({ success: null, message: "" });
+
+    try {
+      const result = await sendContactForm(form);
+      setStatus({ success: true, message: result.message });
+      setForm({ name: "", email: "", message: "" });
+    } catch (error) {
+      setStatus({ success: false, message: error.message });
+    }
+  };
 
   return (
-    <section className="contact">
-      <h2>{title}</h2>
-      <ul>
-        <li>Email: <a href={`mailto:${email}`}>{email}</a></li>
-        <li>Phone: <a href={`tel:${phone}`}>{phone}</a></li>
-        <li>Address: {address}</li>
-      </ul>
+    <section className="contact-section" id="contact">
+      <h2>Contact Me</h2>
+      <form className="contact-form" onSubmit={handleSubmit}>
+        <input
+          type="text"
+          name="name"
+          placeholder="Your Name"
+          value={form.name}
+          onChange={handleChange}
+          required
+        />
+        <input
+          type="email"
+          name="email"
+          placeholder="Your Email"
+          value={form.email}
+          onChange={handleChange}
+          required
+        />
+        <textarea
+          name="message"
+          placeholder="Your Message"
+          value={form.message}
+          onChange={handleChange}
+          required
+        />
+        <button type="submit" className="btn btn_primary">
+          Send
+        </button>
+        {status.message && (
+          <p className={status.success ? "success" : "error"}>{status.message}</p>
+        )}
+      </form>
     </section>
   );
 };
