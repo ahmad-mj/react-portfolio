@@ -1,5 +1,16 @@
-{
-"1" :"Mock products list",
-"2" :"Mock products list",
-"3" :"Mock products list"
-}
+[
+    {
+      "id": "1",
+      "title": "Basic Dog Training",
+      "price": 49.99,
+      "description": "Great for puppies or beginners.",
+      "image": "https://images.rawpixel.com/image_png_800/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvam9iNjgwLTE2Ni1wLWwxZGJ1cTN2LnBuZw.png"
+    },
+    {
+      "id": "2",
+      "title": "Advanced Training",
+      "price": 99.99,
+      "description": "Advanced obedience and tricks.",
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRXf_c4fKaY8z4Q5w8X_PfJD5JyreGLQmU_WmByM-Aa_3fehXLlsobfKZE&s"
+    }
+  ]
