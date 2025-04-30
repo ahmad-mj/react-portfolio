@@ -19,6 +19,14 @@ const data = [
     label: "Contact",
     to: "/contact",
   },
+  {
+    label: "Shop",
+    to: "/shop",
+  },
+  {
+    label: "Cart",
+    to: "/cart",
+  },
 ];
 const Navbar = () => {
   const [menuIsVisible, setMenuIsVisible] = useState(false);

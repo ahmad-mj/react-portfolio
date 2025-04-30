@@ -13,6 +13,9 @@ import { useEffect, useState } from "react";
 import options from "./utils/particles";
 import LanguageToggle from "./components/languageToggle";
 import { LanguageProvider } from "./context/LanguageContext";
+import Shop from "./pages/Shop";
+import Cart from "./pages/Cart";
+import { CartProvider } from "./context/CartContext";
 
 
 function App() {
@@ -36,6 +39,7 @@ function App() {
   // };
 
   return (
+      <CartProvider>
       <LanguageProvider>
     <div className="App">
       {/* {(init && homePage &&
@@ -53,9 +57,12 @@ function App() {
         <Route path="/contact" Component={Contact} />
         <Route path="/home" Component={Home} />
         <Route path="/portfolio" Component={Portfolio} />
+        <Route path="/shop" Component={Shop} />
+        <Route path="/cart" Component={Cart} />
       </Routes>
     </div>
     </LanguageProvider>
+      </CartProvider>
   );
 }
 
