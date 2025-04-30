@@ -5,7 +5,7 @@ const getInitialCart = () => {
     return storedCart ? JSON.pars(storedCart) : [];
 }
 
-const CartContext = createContext();
+export const CartContext = createContext();
 
 const cartReducer = (state, action) => {
   switch (action.type) {
