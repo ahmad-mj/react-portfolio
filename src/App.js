@@ -16,6 +16,8 @@ import { LanguageProvider } from "./context/LanguageContext";
 import Shop from "./pages/Shop";
 import Cart from "./pages/Cart";
 import { CartProvider } from "./context/CartContext";
+import './styles/tailwind-base.css';
+
 
 
 function App() {
