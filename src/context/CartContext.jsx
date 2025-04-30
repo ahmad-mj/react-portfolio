@@ -1,9 +1,9 @@
-import React, {useContext, useReducer,createContext} from "react";
+import React, { useContext, useReducer, createContext, useEffect } from "react";
 
 const getInitialCart = () => {
-    const storedCart = localStorage.getItem('cart');
-    return storedCart ? JSON.parse(storedCart) : [];
-}
+  const storedCart = localStorage.getItem("cart");
+  return storedCart ? JSON.parse(storedCart) : [];
+};
 
 export const CartContext = createContext();
 
@@ -13,7 +13,9 @@ const cartReducer = (state, action) => {
       const exists = state.find((item) => item.id === action.payload.id);
       if (exists) {
         return state.map((item) =>
-          item.id === action.payload.id ? { ...item, quantity: item.quantity + 1 } : item
+          item.id === action.payload.id
+            ? { ...item, quantity: item.quantity + 1 }
+            : item
         );
       }
       return [...state, { ...action.payload, quantity: 1 }];
@@ -28,6 +30,10 @@ const cartReducer = (state, action) => {
 
 export const CartProvider = ({ children }) => {
   const [cart, dispatch] = useReducer(cartReducer, [], getInitialCart);
+
+  useEffect(() => {
+    localStorage.setItem("cart", JSON.stringify(cart));
+  }, [cart]);
   return (
     <CartContext.Provider value={{ cart, dispatch }}>
       {children}
