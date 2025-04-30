@@ -1,16 +1,45 @@
 [
     {
       "id": "1",
-      "title": "Basic Dog Training",
+      "title": "Classic Black Hoodie",
       "price": 49.99,
-      "description": "Great for puppies or beginners.",
-      "image": "https://images.rawpixel.com/image_png_800/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvam9iNjgwLTE2Ni1wLWwxZGJ1cTN2LnBuZw.png"
+      "description": "A timeless black hoodie made from premium cotton.",
+      "image": "https://images.pexels.com/photos/6311394/pexels-photo-6311394.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
     },
     {
       "id": "2",
-      "title": "Advanced Training",
-      "price": 99.99,
-      "description": "Advanced obedience and tricks.",
-      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRXf_c4fKaY8z4Q5w8X_PfJD5JyreGLQmU_WmByM-Aa_3fehXLlsobfKZE&s"
+      "title": "Grey Zip-Up Hoodie",
+      "price": 59.99,
+      "description": "Comfortable grey hoodie with a full-length zipper.",
+      "image": "https://images.pexels.com/photos/6311395/pexels-photo-6311395.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+    },
+    {
+      "id": "3",
+      "title": "Red Pullover Hoodie",
+      "price": 54.99,
+      "description": "Vibrant red hoodie perfect for casual outings.",
+      "image": "https://images.pexels.com/photos/6311396/pexels-photo-6311396.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+    },
+    {
+      "id": "4",
+      "title": "Navy Blue Hoodie",
+      "price": 64.99,
+      "description": "Deep navy blue hoodie with a snug fit.",
+      "image": "https://images.pexels.com/photos/6311397/pexels-photo-6311397.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+    },
+    {
+      "id": "5",
+      "title": "White Lightweight Hoodie",
+      "price": 44.99,
+      "description": "Lightweight white hoodie suitable for layering.",
+      "image": "https://images.pexels.com/photos/6311398/pexels-photo-6311398.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+    },
+    {
+      "id": "6",
+      "title": "Green Eco Hoodie",
+      "price": 69.99,
+      "description": "Eco-friendly green hoodie made from recycled materials.",
+      "image": "https://images.pexels.com/photos/6311399/pexels-photo-6311399.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
     }
   ]
+  
