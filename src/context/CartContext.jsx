@@ -2,7 +2,7 @@ import React, {useContext, useReducer,createContext} from "react";
 
 const getInitialCart = () => {
     const storedCart = localStorage.getItem('cart');
-    return storedCart ? JSON.pars(storedCart) : [];
+    return storedCart ? JSON.parse(storedCart) : [];
 }
 
 export const CartContext = createContext();
@@ -13,7 +13,7 @@ const cartReducer = (state, action) => {
       const exists = state.find((item) => item.id === action.payload.id);
       if (exists) {
         return state.map((item) =>
-          item.id === action.payload.id ? { ...item, quantity: item + 1 } : item
+          item.id === action.payload.id ? { ...item, quantity: item.quantity + 1 } : item
         );
       }
       return [...state, { ...action.payload, quantity: 1 }];
