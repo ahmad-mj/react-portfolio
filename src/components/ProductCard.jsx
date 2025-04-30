@@ -1,7 +1,6 @@
 import { useCart } from "../context/CartContext";
 
 const ProductCard = ({ product }) => {
-  console.log("From ProductCard: Here goes Individual product UI");
   const { dispatch } = useCart();
 
   return (
