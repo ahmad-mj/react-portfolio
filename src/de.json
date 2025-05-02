@@ -1,50 +1,52 @@
 {
   "hero": {
-    "title": "Stärken Sie Ihren Hund",
+    "title": "Stärke deinen Hund",
     "subtitle": "Professionelles Hundetraining für alle Rassen",
-    "cta": "Jetzt Training starten"
-  },
-  "about": {
-    "title": "Über Uns",
-    "description": "Wir sind leidenschaftliche Trainer, die sich darauf konzentrieren, die Bindung zwischen Mensch und Hund durch positive Verstärkung zu stärken."
+    "cta": "Starte das Training noch heute"
   },
   "trainingPrograms": [
     {
       "category": "Grundgehorsam",
+      "image": "https://images.pexels.com/photos/260440/pexels-photo-260440.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
       "skills": [
         { "name": "Sitz", "icon": "faHandPeace" },
         { "name": "Bleib", "icon": "faPause" },
         { "name": "Komm", "icon": "faArrowRightToBracket" },
-        { "name": "Fuß", "icon": "faPersonWalking" }
+        { "name": "Bei Fuß", "icon": "faPersonWalking" }
       ]
     },
     {
       "category": "Verhaltenskorrektur",
+      "image": "https://images.pexels.com/photos/159557/leisure-wildlife-photography-pet-photography-dog-159557.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
       "skills": [
         { "name": "Nicht Springen", "icon": "faBan" },
         { "name": "Nicht Bellen", "icon": "faVolumeMute" },
-        { "name": "Nicht Ziehen", "icon": "faPersonWalking" }
+        { "name": "Nicht Ziehen an der Leine", "icon": "faPersonWalking" }
       ]
     },
     {
-      "category": "Welpen Training",
+      "category": "Welpen-Training",
+      "image": "https://images.pexels.com/photos/14116516/pexels-photo-14116516.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
       "skills": [
-        { "name": "Potty Training", "icon": "faToilet" },
-        { "name": "Crate Training", "icon": "faBox" }
+        { "name": "Stubenreinheit", "icon": "faToilet" },
+        { "name": "Boxentraining", "icon": "faBox" }
       ]
     },
     {
       "category": "Fortgeschrittene Fähigkeiten",
+      "image": "https://images.pexels.com/photos/850602/pexels-photo-850602.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
       "skills": [
-        { "name": "Off-Leash Obedience", "icon": "faArrowRightToBracket" },
-        { "name": "Emergency Stop", "icon": "faPause" }
+        { "name": "Gehorsam ohne Leine", "icon": "faArrowRightToBracket" },
+        { "name": "Notfall-Stopp", "icon": "faPause" }
       ]
     }
   ],
+  "about": {
+    "title": "Über uns",
+    "text": "Wir sind leidenschaftliche Trainer, die sich auf positive Verstärkung und eine starke Bindung konzentrieren."
+  },
   "contact": {
-    "title": "Kontaktieren Sie Uns",
     "email": "train@doghero.com",
-    "phone": "+1 (555) 123-4567",
-    "address": "123 Hundegasse, Hundstadt, DE"
+    "phone": "+1 (555) 123-4567"
   }
 }

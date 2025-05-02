@@ -1,49 +1,52 @@
 {
-    "hero": {
-      "title": "Empower Your Pup",
-      "subtitle": "Professional Dog Training for All Breeds",
-      "cta": "Start Training Today"
+  "hero": {
+    "title": "Empower Your Pup",
+    "subtitle": "Professional Dog Training for All Breeds",
+    "cta": "Start Training Today"
+  },
+  "trainingPrograms": [
+    {
+      "category": "Basic Obedience",
+      "image": "https://images.pexels.com/photos/260440/pexels-photo-260440.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      "skills": [
+        { "name": "Sit", "icon": "faHandPeace" },
+        { "name": "Stay", "icon": "faPause" },
+        { "name": "Come", "icon": "faArrowRightToBracket" },
+        { "name": "Heel", "icon": "faPersonWalking" }
+      ]
     },
-    "trainingPrograms": [
-      {
-        "category": "Basic Obedience",
-        "skills": [
-          { "name": "Sit", "icon": "faHandPeace" },
-          { "name": "Stay", "icon": "faPause" },
-          { "name": "Come", "icon": "faArrowRightToBracket" },
-          { "name": "Heel", "icon": "faPersonWalking" }
-        ]
-      },
-      {
-        "category": "Behavior Correction",
-        "skills": [
-          { "name": "No Jumping", "icon": "faBan" },
-          { "name": "No Barking", "icon": "faVolumeMute" },
-          { "name": "No Leash Pulling", "icon": "faPersonWalking" }
-        ]
-      },
-      {
-        "category": "Puppy Training",
-        "skills": [
-          { "name": "Potty Training", "icon": "faToilet" },
-          { "name": "Crate Training", "icon": "faBox" }
-        ]
-      },
-      {
-        "category": "Advanced Skills",
-        "skills": [
-          { "name": "Off-Leash Obedience", "icon": "faArrowRightToBracket" },
-          { "name": "Emergency Stop", "icon": "faPause" }
-        ]
-      }
-    ],
-    "about": {
-      "title": "About Us",
-      "text": "We’re passionate trainers who focus on positive reinforcement and strong bonds."
+    {
+      "category": "Behavior Correction",
+      "image": "https://images.pexels.com/photos/159557/leisure-wildlife-photography-pet-photography-dog-159557.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      "skills": [
+        { "name": "No Jumping", "icon": "faBan" },
+        { "name": "No Barking", "icon": "faVolumeMute" },
+        { "name": "No Leash Pulling", "icon": "faPersonWalking" }
+      ]
     },
-    "contact": {
-      "email": "train@doghero.com",
-      "phone": "+1 (555) 123-4567"
+    {
+      "category": "Puppy Training",
+      "image": "https://images.pexels.com/photos/14116516/pexels-photo-14116516.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      "skills": [
+        { "name": "Potty Training", "icon": "faToilet" },
+        { "name": "Crate Training", "icon": "faBox" }
+      ]
+    },
+    {
+      "category": "Advanced Skills",
+      "image": "https://images.pexels.com/photos/850602/pexels-photo-850602.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+      "skills": [
+        { "name": "Off-Leash Obedience", "icon": "faArrowRightToBracket" },
+        { "name": "Emergency Stop", "icon": "faPause" }
+      ]
     }
+  ],
+  "about": {
+    "title": "About Us",
+    "text": "We’re passionate trainers who focus on positive reinforcement and strong bonds."
+  },
+  "contact": {
+    "email": "train@doghero.com",
+    "phone": "+1 (555) 123-4567"
   }
-  
+}
