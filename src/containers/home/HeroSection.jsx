@@ -28,7 +28,7 @@ const HeroSection = () => {
   }, [fullText]);
 
   return (
-    <section className="relative overflow-hidden bg-white min-h-screen flex items-center px-6 md:px-24">
+    <section id="home" className="relative overflow-hidden bg-white min-h-screen flex items-center px-6 md:px-24">
       <div className="absolute -top-20 -left-32 w-[500px] h-[500px] bg-gradient-to-tr from-indigo-300 via-purple-200 to-pink-100 rounded-full opacity-30 animate-blob blur-3xl z-0"></div>
 
       <div className="relative z-10 max-w-4xl">
