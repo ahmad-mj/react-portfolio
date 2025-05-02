@@ -2,6 +2,3 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
-  @apply font-base bg-primary_bg text-mainColor;
-}
