@@ -1,5 +1,5 @@
-import en from '../de.json';
-import de from '../en.json';
+import en from '../en.json';
+import de from '../de.json';
 
 import { useLanguage } from '../context/LanguageContext';
 

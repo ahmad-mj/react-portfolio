@@ -1,3 +1,6 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 @import url('https://fonts.googleapis.com/css2?family=FAMILY_NAME:wght@WEIGHT_OR_RANGE&display=swap');
 
 // THEME VARIABLES
@@ -96,10 +99,6 @@ h1, h2, h3, h4, h5, h6 {
 
 // LanguageToggle
 .language-toggle {
-  position: absolute;
-  top: 20px;
-  left: 20px;
-  z-index: 100000;
 
   button {
     background-color: transparent;
@@ -119,9 +118,7 @@ h1, h2, h3, h4, h5, h6 {
 
   @media (max-width: 768px) {
     position: fixed;
-    top: 15px;
-    left: 15px;
-    
+    right: 15px;    
     button {
       font-size: 12px;
       padding: 5px 10px;
