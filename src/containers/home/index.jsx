@@ -8,7 +8,7 @@ return(
     <>
         <HeroSection/>
         <Skills/>
-        <Resume/>
+        {/* <Resume/> */}
     </>
     )
 }
