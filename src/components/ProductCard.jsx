@@ -1,7 +1,11 @@
+import { useState } from "react";
 import { useCart } from "../context/CartContext";
+import QuickViewModal from "../pages/QuickViewModal";
 
 const ProductCard = ({ product }) => {
   const { cart, dispatch } = useCart();
+  const [isQuickViewOpen, setIsQuickViewOpen] = useState(false);
+
   const inCart = cart.find((item) => item.id === product.id);
   const quantity = inCart ? inCart.quantity : 0;
 
@@ -10,42 +14,51 @@ const ProductCard = ({ product }) => {
   };
 
   return (
-    <div className="rounded-2xl p-4 bg-white dark:bg-[#1a1a1a] shadow-sm hover:shadow-md transition">
-      <div className="aspect-square overflow-hidden rounded-xl mb-3">
+    <>
+      <div className="rounded-xl shadow-md p-4 bg-white dark:bg-gray-900 relative group">
         <img
           src={product.image}
           alt={product.title}
-          className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
+          className="w-full h-48 object-cover rounded"
         />
-      </div>
-      <h2 className="text-lg font-semibold text-[#111] dark:text-[#f5f5f5]">
-        {product.title}
-      </h2>
-      <p className="text-sm text-[#555] dark:text-[#ccc] mt-1">{product.description}</p>
-      <p className="text-md font-bold text-[#111] dark:text-[#fff] mt-2">${product.price}</p>
+        <h2 className="text-lg font-bold mt-2 text-gray-900 dark:text-white">
+          {product.title}
+        </h2>
+        <p className="text-sm text-gray-500 dark:text-gray-300">
+          {product.description}
+        </p>
+        <p className="text-md font-semibold mt-1 text-black dark:text-white">
+          ${product.price}
+        </p>
 
-      <div className="mt-4 flex items-center justify-between">
-        <button
-          onClick={handleAddToCart}
-          className="px-4 py-2 rounded-full bg-[#111] text-white dark:bg-white dark:text-[#111] text-sm font-medium hover:opacity-90 transition"
-        >
-          {quantity > 0 ? "Add More" : "Add to Cart"}
-        </button>
-
-        <button
-          className="text-sm text-[#888] dark:text-[#aaa] hover:underline"
-          title="Save for later"
-        >
-          ♡
-        </button>
-      </div>
-
-      {quantity > 0 && (
-        <div className="mt-2 text-green-600 text-sm font-semibold">
-          In cart: {quantity}
+        <div className="flex gap-2 mt-3">
+          <button
+            onClick={handleAddToCart}
+            className="px-4 py-2 bg-black text-white rounded hover:bg-gray-800 transition"
+          >
+            Add to Cart
+          </button>
+          <button
+            onClick={() => setIsQuickViewOpen(true)}
+            className="px-4 py-2 border border-gray-300 text-gray-700 dark:text-white dark:border-gray-600 rounded hover:bg-gray-100 dark:hover:bg-gray-800 transition"
+          >
+            Quick View
+          </button>
         </div>
-      )}
-    </div>
+
+        {quantity > 0 && (
+          <span className="mt-2 text-green-600 dark:text-green-400 font-semibold block">
+            In cart: {quantity}
+          </span>
+        )}
+      </div>
+
+      <QuickViewModal
+        isOpen={isQuickViewOpen}
+        onClose={() => setIsQuickViewOpen(false)}
+        product={product}
+      />
+    </>
   );
 };
 
