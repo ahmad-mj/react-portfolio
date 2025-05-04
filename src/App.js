@@ -52,7 +52,6 @@ function App() {
           options={options}
         />
       )} */}
-      <LanguageToggle />
       <Navbar />
     <Layout >
       <Routes>
