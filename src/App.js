@@ -16,6 +16,9 @@ import { LanguageProvider } from "./context/LanguageContext";
 import Shop from "./pages/Shop";
 import Cart from "./pages/Cart";
 import { CartProvider } from "./context/CartContext";
+import './styles/tailwind-base.css';
+import Layout from "./containers/layout";
+
 
 
 function App() {
@@ -49,8 +52,8 @@ function App() {
           options={options}
         />
       )} */}
-      <LanguageToggle />
       <Navbar />
+    <Layout >
       <Routes>
         <Route path="/" Component={Home} />
         <Route path="/about" Component={About} />
@@ -60,6 +63,7 @@ function App() {
         <Route path="/shop" Component={Shop} />
         <Route path="/cart" Component={Cart} />
       </Routes>
+    </Layout>
     </div>
     </LanguageProvider>
       </CartProvider>

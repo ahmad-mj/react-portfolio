@@ -1,72 +1,73 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
-import React, { useState } from "react";
-import "./styles.scss";
-import { WiEarthquake } from "react-icons/wi";
 import { FaBars } from "react-icons/fa";
 import { HiX } from "react-icons/hi";
 import ThemeToggle from "./ThemeToggle";
+import LanguageToggle from "../languageToggle";
 
-const data = [
-  {
-    label: "Home",
-    to: "/",
-  },
-  {
-    label: "About",
-    to: "/about",
-  },
-  {
-    label: "Contact",
-    to: "/contact",
-  },
-  {
-    label: "Shop",
-    to: "/shop",
-  },
-  {
-    label: "Cart",
-    to: "/cart",
-  },
+import clsx from "clsx";
+
+const links = [
+  { label: "Home", to: "/" },
+  { label: "About", to: "/about" },
+  { label: "Contact", to: "/contact" },
+  { label: "Shop", to: "/shop" },
+  { label: "Cart", to: "/cart" },
 ];
+
 const Navbar = () => {
-  const [menuIsVisible, setMenuIsVisible] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
 
-  const handleMenuClick = () => {
-    setMenuIsVisible(false);
-  };
   return (
-    <>
-      <nav className="navbar">
-        <ThemeToggle />
-        <div className="navbar_container">
-          <Link to={"/"} className="navbar_logo">
-            <WiEarthquake size={30} />
-          </Link>
+    <header className="bg-white dark:bg-black shadow-md sticky top-0 z-50">
+      <div className="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
+        <nav className="hidden md:flex gap-6 items-center">
+          {links.map(({ label, to }) => (
+            <Link
+              key={to}
+              to={to}
+              className="text-gray-700 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400 transition"
+            >
+              {label}
+            </Link>
+          ))}
+        </nav>
 
-          <ul className={`navbar_menu ${menuIsVisible && "active"}`}>
-            {data.map((item, key) => (
-              <li key={key} className="menu_item">
-                <Link
-                  to={item.to}
-                  className="menu_links"
-                  onClick={handleMenuClick}
-                >
-                  {item.label}
-                </Link>
-              </li>
-            ))}
-          </ul>
-          <div
-            className="toggleIcon"
-            onClick={() => setMenuIsVisible(!menuIsVisible)}
+        {/* Right: toggles */}
+        <div className="flex items-center gap-4">
+          <ThemeToggle />
+          <LanguageToggle />
+          <button
+            className="md:hidden text-gray-700 dark:text-gray-200"
+            onClick={() => setMenuOpen(!menuOpen)}
           >
-            {menuIsVisible ? <HiX size={30} /> : <FaBars size={30} />}
-          </div>
+            {menuOpen ? <HiX size={28} /> : <FaBars size={24} />}
+          </button>
         </div>
-      </nav>
-      <div className={`hero-section ${menuIsVisible ? "menu-active" : ""}`}>
       </div>
-    </>
+
+      {/* Mobile menu */}
+      <div
+        className={clsx(
+          "md:hidden transition-all duration-300 overflow-hidden",
+          menuOpen ? "max-h-screen py-4 px-4" : "max-h-0"
+        )}
+      >
+        <nav className="flex flex-col gap-4">
+          {links.map(({ label, to }) => (
+            <Link
+              key={to}
+              to={to}
+              onClick={() => setMenuOpen(false)}
+              className="text-gray-700 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400 transition"
+            >
+              {label}
+            </Link>
+          ))}
+        </nav>
+      </div>
+    </header>
   );
 };
+
 export default Navbar;
