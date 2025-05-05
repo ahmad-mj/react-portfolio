@@ -1,4 +1,4 @@
-import { createContext, useContext, useReducer } from "react";
+import { createContext, useContext, useEffect, useReducer } from "react";
 
 const WishlistContext = createContext();
 
@@ -12,9 +12,23 @@ const wishlistReducer = (state, action) => {
       return state;
   }
 };
+const getInitialWishlist = () => {
+  try {
+    const stored = localStorage.getItem("wishlist");
+    return stored ? JSON.parse(stored) : [];
+  } catch (error) {
+    console.error("Failed to parse wishlist from localStorage ", error);
+    return [];
+  }
+};
 
 export const WishlistProvider = ({ children }) => {
-  const [wishlist, dispatch] = useReducer(wishlistReducer, []);
+  const [wishlist, dispatch] = useReducer(wishlistReducer, [], getInitialWishlist);
+
+  // Save to localStorage whenever wishlist changes
+  useEffect(() => {
+    localStorage.setItem("wishlist", JSON.stringify(wishlist));
+  }, [wishlist]);
 
   return (
     <WishlistContext.Provider value={{ wishlist, dispatch }}>
