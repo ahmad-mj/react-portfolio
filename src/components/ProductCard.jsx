@@ -2,24 +2,36 @@ import { useCart } from "../context/CartContext";
 import { useState } from "react";
 import { Heart, HeartOff } from "lucide-react";
 import QuickViewModal from "./../pages/QuickViewModal";
+import { useWishlist } from "../context/WishlistContext";
 
-const ProductCard = ({ product, isWishlisted, onToggleWishlist }) => {
-  const { cart, dispatch } = useCart();
+const ProductCard = ({ product }) => {
+  const { cart, dispatch: cartDispatch } = useCart();
+  const { wishlist, dispatch: wishlistDispatch } = useWishlist();
+
   const [showQuickView, setShowQuickView] = useState(false);
 
   const inCart = cart.find((item) => item.id === product.id);
   const quantity = inCart ? inCart.quantity : 0;
 
+  const isWishlisted = wishlist.some((item) => item.id === product.id);
+
   const handleAddToCart = () => {
-    dispatch({ type: "ADD", payload: product });
+    cartDispatch({ type: "ADD", payload: product });
+  };
+
+  const handleToggleWishlist = (e) => {
+    e.stopPropagation(); // Prevent modal from opening
+    wishlistDispatch({ type: "TOGGLE_WISHLIST", payload: product });
   };
 
   return (
     <>
-      <div className="relative rounded-xl shadow-md p-4 bg-white dark:bg-gray-900 transition hover:shadow-lg">
-        {/* Heart button */}
+      <div
+        className="relative rounded-xl shadow-md p-4 bg-white dark:bg-gray-900 transition hover:shadow-lg cursor-pointer"
+        onClick={() => setShowQuickView(true)}
+      >
         <button
-          onClick={onToggleWishlist}
+          onClick={handleToggleWishlist}
           className="absolute top-3 right-3 z-10 p-1 rounded-full bg-white dark:bg-gray-800 shadow"
         >
           {isWishlisted ? (
@@ -29,21 +41,21 @@ const ProductCard = ({ product, isWishlisted, onToggleWishlist }) => {
           )}
         </button>
 
-        {/* Product Image Click opens Quick View */}
-        <div onClick={() => setShowQuickView(true)} className="cursor-pointer">
-          <img
-            src={product.images?.[0] || product.image}
-            alt={product.title}
-            className="w-full h-40 object-cover rounded"
-          />
-        </div>
+        <img
+          src={product.images?.[0] || product.image}
+          alt={product.title}
+          className="w-full h-40 object-cover rounded"
+        />
 
         <h2 className="text-lg font-bold mt-2">{product.title}</h2>
         <p className="text-sm">{product.description}</p>
         <p className="text-md font-semibold mt-1">${product.price}</p>
 
         <button
-          onClick={handleAddToCart}
+          onClick={(e) => {
+            e.stopPropagation();
+            handleAddToCart();
+          }}
           className="mt-3 px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition"
         >
           Add to Cart
@@ -61,7 +73,7 @@ const ProductCard = ({ product, isWishlisted, onToggleWishlist }) => {
         onClose={() => setShowQuickView(false)}
         product={product}
         isWishlisted={isWishlisted}
-        onToggleWishlist={onToggleWishlist}
+        onToggleWishlist={handleToggleWishlist}
       />
     </>
   );
