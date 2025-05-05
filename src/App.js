@@ -43,9 +43,9 @@ function App() {
   // };
 
   return (
+        <WishlistProvider>
       <CartProvider>
       <LanguageProvider>
-        <WishlistProvider>
     <div className="App">
       {/* {(init && homePage &&
         <Particles
@@ -67,9 +67,9 @@ function App() {
       </Routes>
     </Layout>
     </div>
-    </WishlistProvider>
     </LanguageProvider>
       </CartProvider>
+    </WishlistProvider>
   );
 }
 
