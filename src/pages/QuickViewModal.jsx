@@ -3,7 +3,7 @@ import { Dialog } from "@headlessui/react";
 import { X } from "lucide-react";
 import { useCart } from "../context/CartContext";
 
-const QuickViewModal = ({ isOpen, onClose, product }) => {
+const QuickViewModal = ({ isOpen, onClose, product, isWishlisted,onToggleWishlist }) => {
   const { cart, dispatch } = useCart();
   const [currentIndex, setCurrentIndex] = useState(0);
 
@@ -94,8 +94,15 @@ const QuickViewModal = ({ isOpen, onClose, product }) => {
                 >
                   {quantity > 0 ? `In Cart (${quantity})` : "Add to Cart"}
                 </button>
-                <button className="px-4 py-2 bg-gray-200 dark:bg-gray-700 text-black dark:text-white rounded hover:bg-gray-300 dark:hover:bg-gray-600 transition">
-                  Save for Later
+                <button
+                  onClick={onToggleWishlist}
+                  className={`px-4 py-2 rounded transition ${
+                    isWishlisted
+                      ? "bg-red-500 text-white"
+                      : "bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300"
+                  }`}
+                >
+                  {isWishlisted ? "Saved" : "Save for Later"}
                 </button>
               </div>
             </div>
