@@ -1,25 +1,36 @@
-import React from "react";
+import React, { useState } from "react";
 import { Dialog } from "@headlessui/react";
 import { X } from "lucide-react";
 import { useCart } from "../context/CartContext";
 
 const QuickViewModal = ({ isOpen, onClose, product }) => {
   const { cart, dispatch } = useCart();
+  const [currentIndex, setCurrentIndex] = useState(0);
 
   if (!isOpen || !product) return null;
 
+  const images = product.images || [product.image];
   const inCart = cart.find((item) => item.id === product.id);
   const quantity = inCart ? inCart.quantity : 0;
 
   const handleAddToCart = () => {
     dispatch({ type: "ADD", payload: product });
   };
+
+  const prevSlide = () => {
+    setCurrentIndex((prev) => (prev === 0 ? images.length - 1 : prev - 1));
+  };
+
+  const nextSlide = () => {
+    setCurrentIndex((prev) => (prev === images.length - 1 ? 0 : prev + 1));
+  };
+
   return (
     <Dialog open={isOpen} onClose={onClose} className="relative z-50">
       <div className="fixed inset-0 bg-black/40" aria-hidden="true" />
-
       <div className="fixed inset-0 flex items-center justify-center p-4">
         <Dialog.Panel className="w-full max-w-4xl bg-white dark:bg-[#1a1a1a] rounded-xl shadow-lg overflow-hidden transition-all">
+          {/* Header */}
           <div className="flex justify-between items-center px-6 py-4 border-b dark:border-gray-800">
             <Dialog.Title className="text-xl font-bold text-[#111] dark:text-white">
               {product.title}
@@ -33,14 +44,31 @@ const QuickViewModal = ({ isOpen, onClose, product }) => {
           </div>
 
           <div className="flex flex-col md:flex-row p-6 gap-6">
-            {/* Image slider placeholder */}
+            {/* Image Slider */}
             <div className="flex-1">
-              <img
-                src={product.image}
-                alt={product.title}
-                className="rounded-xl w-full h-auto object-cover"
-              />
-              {/* Add carousel later */}
+              <div className="relative w-full h-64 overflow-hidden rounded-xl mb-4">
+                <img
+                  src={images[currentIndex]}
+                  alt={`Slide ${currentIndex + 1}`}
+                  className="w-full h-full object-cover transition duration-500"
+                />
+                {images.length > 1 && (
+                  <>
+                    <button
+                      onClick={prevSlide}
+                      className="absolute left-2 top-1/2 transform -translate-y-1/2 bg-white/80 dark:bg-gray-800/80 p-2 rounded-full"
+                    >
+                      ‹
+                    </button>
+                    <button
+                      onClick={nextSlide}
+                      className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-white/80 dark:bg-gray-800/80 p-2 rounded-full"
+                    >
+                      ›
+                    </button>
+                  </>
+                )}
+              </div>
             </div>
 
             {/* Product Info */}
@@ -54,7 +82,6 @@ const QuickViewModal = ({ isOpen, onClose, product }) => {
                 <p className="text-sm text-gray-500 dark:text-gray-400">
                   Delivery in 3–5 days
                 </p>
-
                 <p className="text-sm text-gray-500 dark:text-gray-400">
                   Available sizes: S, M, L
                 </p>
@@ -63,11 +90,11 @@ const QuickViewModal = ({ isOpen, onClose, product }) => {
               <div className="flex gap-3 pt-4">
                 <button
                   onClick={handleAddToCart}
-                  className="mt-4 px-4 py-2 bg-black text-white rounded hover:bg-gray-800 transition"
+                  className="px-4 py-2 bg-black text-white rounded hover:bg-gray-800 transition"
                 >
                   {quantity > 0 ? `In Cart (${quantity})` : "Add to Cart"}
                 </button>
-                <button className="mt-4 px-4 py-2 bg-black text-white rounded hover:bg-gray-800 transition">
+                <button className="px-4 py-2 bg-gray-200 dark:bg-gray-700 text-black dark:text-white rounded hover:bg-gray-300 dark:hover:bg-gray-600 transition">
                   Save for Later
                 </button>
               </div>
