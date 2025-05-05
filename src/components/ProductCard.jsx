@@ -16,11 +16,11 @@ const ProductCard = ({ product }) => {
   return (
     <>
       <div className="rounded-xl shadow-md p-4 bg-white dark:bg-gray-900 relative group">
-        <img
-          src={product.image}
-          alt={product.title}
-          className="w-full h-48 object-cover rounded"
-        />
+      <img
+  src={product.images?.[0]}
+  alt={product.title}
+  className="w-full h-40 object-cover rounded"
+/>
         <h2 className="text-lg font-bold mt-2 text-gray-900 dark:text-white">
           {product.title}
         </h2>
