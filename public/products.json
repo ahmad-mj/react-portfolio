@@ -1,0 +1,66 @@
+[
+  {
+    "id": "1",
+    "title": "Classic Black Hoodie",
+    "price": 39.99,
+    "description": "A timeless black hoodie made from premium cotton.",
+    "images": [
+      "https://images.pexels.com/photos/6311396/pexels-photo-6311396.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      "https://media.gettyimages.com/id/1366972069/de/foto/portr%C3%A4t-eines-fr%C3%B6hlichen-mannes-im-orangefarbenen-kapuzenpullover.jpg?s=1024x1024&w=gi&k=20&c=Pql2aQ8MP77ZVugMBHgolo9NN9jvBvv3ZaOTFmOZRAA="
+    ]
+  },
+  {
+    "id": "2",
+    "title": "Grey Zip-Up Hoodie",
+    "price": 59.99,
+    "description": "Comfortable grey hoodie with a full-length zipper.",
+    "images": [
+      "https://media.gettyimages.com/id/1366972069/de/foto/portr%C3%A4t-eines-fr%C3%B6hlichen-mannes-im-orangefarbenen-kapuzenpullover.jpg?s=1024x1024&w=gi&k=20&c=Pql2aQ8MP77ZVugMBHgolo9NN9jvBvv3ZaOTFmOZRAA=",
+      "https://images.pexels.com/photos/6255905/pexels-photo-6255905.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+    ]
+  },    {
+      "id": "3",
+      "title": "Red Pullover Hoodie",
+      "price": 54.99,
+      "description": "Vibrant red hoodie perfect for casual outings.",
+      "images": [
+        "https://images.pexels.com/photos/7479830/pexels-photo-7479830.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+        "https://images.pexels.com/photos/6311396/pexels-photo-6311396.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "https://media.gettyimages.com/id/1366972069/de/foto/portr%C3%A4t-eines-fr%C3%B6hlichen-mannes-im-orangefarbenen-kapuzenpullover.jpg?s=1024x1024&w=gi&k=20&c=Pql2aQ8MP77ZVugMBHgolo9NN9jvBvv3ZaOTFmOZRAA="
+      ]
+      },
+    {
+      "id": "4",
+      "title": "Navy Blue Hoodie",
+      "price": 64.99,
+      "description": "Deep navy blue hoodie with a snug fit.",
+      "images": [
+        "https://images.pexels.com/photos/5257645/pexels-photo-5257645.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+        "https://images.pexels.com/photos/6311396/pexels-photo-6311396.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "https://media.gettyimages.com/id/1366972069/de/foto/portr%C3%A4t-eines-fr%C3%B6hlichen-mannes-im-orangefarbenen-kapuzenpullover.jpg?s=1024x1024&w=gi&k=20&c=Pql2aQ8MP77ZVugMBHgolo9NN9jvBvv3ZaOTFmOZRAA="
+      ]
+      },
+    {
+      "id": "5",
+      "title": "White Lightweight Hoodie",
+      "price": 44.99,
+      "description": "Lightweight white hoodie suitable for layering.",
+      "images": [
+        "https://images.pexels.com/photos/5840463/pexels-photo-5840463.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+        "https://images.pexels.com/photos/6311396/pexels-photo-6311396.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "https://media.gettyimages.com/id/1366972069/de/foto/portr%C3%A4t-eines-fr%C3%B6hlichen-mannes-im-orangefarbenen-kapuzenpullover.jpg?s=1024x1024&w=gi&k=20&c=Pql2aQ8MP77ZVugMBHgolo9NN9jvBvv3ZaOTFmOZRAA="
+      ]
+    },
+    {
+      "id": "6",
+      "title": "Green Eco Hoodie",
+      "price": 69.99,
+      "description": "Eco-friendly green hoodie made from recycled materials.",
+      "images": [
+        "https://images.pexels.com/photos/6255905/pexels-photo-6255905.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",      
+        "https://images.pexels.com/photos/6311396/pexels-photo-6311396.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "https://media.gettyimages.com/id/1366972069/de/foto/portr%C3%A4t-eines-fr%C3%B6hlichen-mannes-im-orangefarbenen-kapuzenpullover.jpg?s=1024x1024&w=gi&k=20&c=Pql2aQ8MP77ZVugMBHgolo9NN9jvBvv3ZaOTFmOZRAA="
+      ]
+    }
+  ]
+  

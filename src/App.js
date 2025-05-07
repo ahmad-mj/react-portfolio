@@ -18,6 +18,7 @@ import Cart from "./pages/Cart";
 import { CartProvider } from "./context/CartContext";
 import './styles/tailwind-base.css';
 import Layout from "./containers/layout";
+import { WishlistProvider } from "./context/WishlistContext";
 
 
 
@@ -42,6 +43,7 @@ function App() {
   // };
 
   return (
+        <WishlistProvider>
       <CartProvider>
       <LanguageProvider>
     <div className="App">
@@ -67,6 +69,7 @@ function App() {
     </div>
     </LanguageProvider>
       </CartProvider>
+    </WishlistProvider>
   );
 }
 
