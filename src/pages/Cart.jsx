@@ -12,7 +12,7 @@ const Cart = () => {
       {cart.map((item) => (
         <div key={item.id} className="mb-2 border-b pb-2 flex justify-between">
           <div>
-            <h3 className="font-bold">(item.title)</h3>
+            <h3 className="font-bold">{item.title}</h3>
             <p>Qty: {item.quantity}</p>
           </div>
           <div>
