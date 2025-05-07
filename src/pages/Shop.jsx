@@ -1,6 +1,6 @@
-import products from "./data/products.json";
 import ProductCard from "../components/ProductCard";
 import { useState } from "react";
+import { useProducts } from "../hooks/useProducts";
 
 const Shop = () => {
   const [wishlist, setWishlist] = useState([]);
@@ -11,6 +11,8 @@ const Shop = () => {
         : [...prev, productId]
     );
   };
+  const { products, loading } = useProducts();
+  if (loading) return <div className="p-4 text-center">Loading...</div>;
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 p-4">
       {products.map((product) => (
