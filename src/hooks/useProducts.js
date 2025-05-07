@@ -7,7 +7,7 @@ export const useProducts = () => {
     useEffect(() => {
         const fetchProducts = async () => {
             try {
-                const res = await fetch("/products.json");
+                const res = await fetch("products.json");
                 const data = await res.json();
                 setProducts(data);
             } catch (error) {
