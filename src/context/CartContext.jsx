@@ -23,6 +23,18 @@ const cartReducer = (state, action) => {
       return state.filter((item) => item.id !== action.payload);
     case "CLEAR":
       return [];
+    case "INCREMENT":
+      return state.map((item) =>
+        item.id === action.payload
+          ? { ...item, quantity: item.quantity + 1 }
+          : item
+      );
+    case "DECREMENT":
+      return state.map((item) =>
+        item.id === action.payload && item.quantity > 1
+          ? { ...item, quantity: item.quantity - 1 }
+          : item
+      );
     default:
       return state;
   }
