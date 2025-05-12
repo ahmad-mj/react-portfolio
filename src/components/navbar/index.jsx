@@ -2,10 +2,11 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { FaBars } from "react-icons/fa";
 import { HiX } from "react-icons/hi";
-import ThemeToggle from "./ThemeToggle";
+// import ThemeToggle from "./ThemeToggle";
 import LanguageToggle from "../languageToggle";
-
+import { useCart } from "../../context/CartContext";
 import clsx from "clsx";
+import { ShoppingCart } from "lucide-react";
 
 const links = [
   { label: "Home", to: "/" },
@@ -16,6 +17,8 @@ const links = [
 ];
 
 const Navbar = () => {
+  const { cart } = useCart();
+  const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
@@ -34,16 +37,23 @@ const Navbar = () => {
         </nav>
 
         {/* Right: toggles */}
+          <LanguageToggle/>
         <div className="flex items-center gap-4">
-          <ThemeToggle />
-          <LanguageToggle />
           <button
             className="md:hidden text-gray-700 dark:text-gray-200"
             onClick={() => setMenuOpen(!menuOpen)}
-          >
+            >
             {menuOpen ? <HiX size={28} /> : <FaBars size={24} />}
           </button>
         </div>
+        <Link to="/cart" className="relative">
+          <ShoppingCart size={24} />
+          {totalItems > 0 && (
+            <span className="absolute -top-2 -right-3 bg-red-500 text-white text-xs w-5 h-5 rounded-full flex items-center justify-center">
+              {totalItems}
+            </span>
+          )}
+        </Link>
       </div>
 
       {/* Mobile menu */}
