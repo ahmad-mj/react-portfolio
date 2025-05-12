@@ -1,4 +1,5 @@
 import React, { useContext, useReducer, createContext, useEffect } from "react";
+import { useProducts } from "../hooks/useProducts";
 
 const getInitialCart = () => {
   const storedCart = localStorage.getItem("cart");
@@ -42,12 +43,18 @@ const cartReducer = (state, action) => {
 
 export const CartProvider = ({ children }) => {
   const [cart, dispatch] = useReducer(cartReducer, [], getInitialCart);
+  const { products } = useProducts();
 
   useEffect(() => {
     localStorage.setItem("cart", JSON.stringify(cart));
   }, [cart]);
+
+  const hydratedCart = cart.map(({ id, quantity }) => {
+    const product = products.find((p) => p.id === id);
+    return product ? { ...product, quantity } : null;
+  }).filter(Boolean);
   return (
-    <CartContext.Provider value={{ cart, dispatch }}>
+    <CartContext.Provider value={{ cart: hydratedCart, dispatch }}>
       {children}
     </CartContext.Provider>
   );
