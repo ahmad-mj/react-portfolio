@@ -1,6 +1,7 @@
 import { useCart } from "../context/CartContext";
 import { useState } from "react";
 import ConfirmDialog from "./ConfirmDialog";
+import { Link } from "react-router-dom";
 
 const Cart = () => {
   const { cart, dispatch } = useCart();
@@ -78,7 +79,12 @@ const Cart = () => {
           </button>
         </div>
       )}
-
+      <Link
+        to="/checkout"
+        className="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700 transition"
+      >
+        Proceed to Checkout
+      </Link>
       <ConfirmDialog
         isOpen={confirmOpen}
         onClose={() => setConfirmOpen(false)}
