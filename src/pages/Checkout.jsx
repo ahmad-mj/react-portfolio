@@ -31,16 +31,30 @@ const Checkout = () => {
       return;
     }
 
-    // Simulate order success
+    const order = {
+      id: Date.now(), // simple unique ID
+      items: cart,
+      total,
+      shippingInfo: formData,
+      createdAt: new Date().toISOString(),
+    };
+
+    // Save to localStorage
+    const existingOrders = JSON.parse(localStorage.getItem("orders")) || [];
+    localStorage.setItem("orders", JSON.stringify([order, ...existingOrders]));
+
+    // Clear cart + show success
+    dispatch({ type: "CLEAR" });
     setOrderPlaced(true);
-    dispatch({ type: "CLEAR" }); // Clear cart
   };
 
   if (orderPlaced) {
     return (
       <div className="p-6 max-w-3xl mx-auto text-center">
         <h2 className="text-2xl font-bold mb-4">🎉 Order Placed!</h2>
-        <p className="text-gray-600">Thank you, {formData.name}. Your order is on its way.</p>
+        <p className="text-gray-600">
+          Thank you, {formData.name}. Your order is on its way.
+        </p>
       </div>
     );
   }
@@ -56,14 +70,30 @@ const Checkout = () => {
           {/* Cart Summary */}
           <div className="mb-6">
             {cart.map((item) => (
-              <div key={item.id} className="mb-2 flex justify-between">
-                <span>
-                  {item.title} × {item.quantity}
-                </span>
-                <span>${(item.price * item.quantity).toFixed(2)}</span>
+              <div
+                key={item.id}
+                className="mb-4 border-b pb-4 flex justify-between items-center"
+              >
+                <div className="flex items-center gap-4">
+                  <img
+                    src={item.images?.[0] || item.image}
+                    alt={item.title}
+                    className="w-16 h-16 object-cover rounded"
+                  />
+                </div>
+                <h3 className="font-semibold">
+                  {item.title} x {item.quantity}
+                </h3>
+                <div className="text-right">
+                  <p className="font-semibold">
+                    ${(item.price * item.quantity).toFixed(2)}
+                  </p>
+                </div>
               </div>
             ))}
-            <div className="mt-4 font-bold text-lg">Total: ${total.toFixed(2)}</div>
+            <div className="mt-4 font-bold text-lg">
+              Total: ${total.toFixed(2)}
+            </div>
           </div>
 
           {/* Shipping Form */}
