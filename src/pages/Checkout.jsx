@@ -13,6 +13,7 @@ const Checkout = () => {
     zip: "",
   });
 
+  const [step, setStep] = useState(1); // Step 1 = Shipping, Step 2 = Payment
   const [orderPlaced, setOrderPlaced] = useState(false);
 
   const total = cart.reduce((acc, item) => acc + item.price * item.quantity, 0);
@@ -20,17 +21,17 @@ const Checkout = () => {
   const handleChange = (e) => {
     setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
-
-  const handleSubmit = (e) => {
+  const handleShippingSubmit = (e) => {
     e.preventDefault();
-
     // Simple validation
     const allFieldsFilled = Object.values(formData).every(Boolean);
     if (!allFieldsFilled) {
       alert("Please fill out all shipping fields.");
       return;
     }
-
+    setStep(2);
+  };
+  const handleMockPayment = () => {
     const order = {
       id: Date.now(), // simple unique ID
       items: cart,
@@ -39,7 +40,6 @@ const Checkout = () => {
       createdAt: new Date().toISOString(),
     };
 
-    // Save to localStorage
     const existingOrders = JSON.parse(localStorage.getItem("orders")) || [];
     localStorage.setItem("orders", JSON.stringify([order, ...existingOrders]));
 
@@ -48,6 +48,7 @@ const Checkout = () => {
     setOrderPlaced(true);
   };
 
+  // Save to localStorage
   if (orderPlaced) {
     return (
       <div className="p-6 max-w-3xl mx-auto text-center">
@@ -67,98 +68,125 @@ const Checkout = () => {
         <p className="text-gray-500">Your cart is empty.</p>
       ) : (
         <>
-          {/* Cart Summary */}
-          <div className="mb-6">
-            {cart.map((item) => (
-              <div
-                key={item.id}
-                className="mb-4 border-b pb-4 flex justify-between items-center"
-              >
-                <div className="flex items-center gap-4">
-                  <img
-                    src={item.images?.[0] || item.image}
-                    alt={item.title}
-                    className="w-16 h-16 object-cover rounded"
-                  />
-                </div>
-                <h3 className="font-semibold">
-                  {item.title} x {item.quantity}
-                </h3>
-                <div className="text-right">
-                  <p className="font-semibold">
-                    ${(item.price * item.quantity).toFixed(2)}
-                  </p>
+          {/* Step 1: Shipping */}
+          {step === 1 && (
+            <>
+              {/* Cart Summary */}
+              <div className="mb-6">
+                {cart.map((item) => (
+                  <div key={item.id} className="mb-2 flex justify-between">
+                    <span>
+                      {item.title} × {item.quantity}
+                    </span>
+                    <span>${(item.price * item.quantity).toFixed(2)}</span>
+                  </div>
+                ))}
+                <div className="mt-4 font-bold text-lg">
+                  Total: ${total.toFixed(2)}
                 </div>
               </div>
-            ))}
-            <div className="mt-4 font-bold text-lg">
-              Total: ${total.toFixed(2)}
-            </div>
-          </div>
 
-          {/* Shipping Form */}
-          <form onSubmit={handleSubmit} className="grid grid-cols-1 gap-4">
-            <input
-              type="text"
-              name="name"
-              placeholder="Full Name"
-              value={formData.name}
-              onChange={handleChange}
-              className="p-2 border rounded"
-              required
-            />
-            <input
-              type="email"
-              name="email"
-              placeholder="Email"
-              value={formData.email}
-              onChange={handleChange}
-              className="p-2 border rounded"
-              required
-            />
-            <input
-              type="text"
-              name="address"
-              placeholder="Address"
-              value={formData.address}
-              onChange={handleChange}
-              className="p-2 border rounded"
-              required
-            />
-            <input
-              type="text"
-              name="city"
-              placeholder="City"
-              value={formData.city}
-              onChange={handleChange}
-              className="p-2 border rounded"
-              required
-            />
-            <input
-              type="text"
-              name="country"
-              placeholder="Country"
-              value={formData.country}
-              onChange={handleChange}
-              className="p-2 border rounded"
-              required
-            />
-            <input
-              type="text"
-              name="zip"
-              placeholder="Zip Code"
-              value={formData.zip}
-              onChange={handleChange}
-              className="p-2 border rounded"
-              required
-            />
-            <button
-              type="submit"
-              className="bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700 transition"
-            >
-              Place Order
-            </button>
-          </form>
+              {/* Shipping Form */}
+              <form
+                onSubmit={handleShippingSubmit}
+                className="grid grid-cols-1 gap-4"
+              >
+                <input
+                  type="text"
+                  name="name"
+                  placeholder="Full Name"
+                  value={formData.name}
+                  onChange={handleChange}
+                  className="p-2 border rounded"
+                  required
+                />
+                <input
+                  type="email"
+                  name="email"
+                  placeholder="Email"
+                  value={formData.email}
+                  onChange={handleChange}
+                  className="p-2 border rounded"
+                  required
+                />
+                <input
+                  type="text"
+                  name="address"
+                  placeholder="Address"
+                  value={formData.address}
+                  onChange={handleChange}
+                  className="p-2 border rounded"
+                  required
+                />
+                <input
+                  type="text"
+                  name="city"
+                  placeholder="City"
+                  value={formData.city}
+                  onChange={handleChange}
+                  className="p-2 border rounded"
+                  required
+                />
+                <input
+                  type="text"
+                  name="country"
+                  placeholder="Country"
+                  value={formData.country}
+                  onChange={handleChange}
+                  className="p-2 border rounded"
+                  required
+                />
+                <input
+                  type="text"
+                  name="zip"
+                  placeholder="Zip Code"
+                  value={formData.zip}
+                  onChange={handleChange}
+                  className="p-2 border rounded"
+                  required
+                />
+                <button
+                  type="submit"
+                  className="bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700 transition"
+                >
+                  Proceed to Payment
+                </button>
+              </form>
+            </>
+          )}
+
+          {/* Step 2: Mock Payment */}
+          {step === 2 && (
+            <div className="space-y-4">
+              <h3 className="text-xl font-semibold mb-2">Payment</h3>
+              <input
+                type="text"
+                placeholder="Card Number"
+                value="4242 4242 4242 4242"
+                className="p-2 border rounded w-full bg-gray-100 text-gray-500"
+                disabled
+              />
+              <input
+                type="text"
+                placeholder="Name on Card"
+                value={formData.name}
+                className="p-2 border rounded w-full"
+                readOnly
+              />
+              <button
+                onClick={handleMockPayment}
+                className="bg-green-600 text-white py-2 px-4 rounded hover:bg-green-700 transition"
+              >
+                Pay Now
+              </button>
+              <button
+                onClick={() => setStep(1)}
+                className="text-sm text-gray-500 hover:underline"
+              >
+                ← Back to Shipping
+              </button>
+            </div>
+          )}
         </>
       )}
     </div>
