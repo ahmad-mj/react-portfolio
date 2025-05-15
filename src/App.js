@@ -19,6 +19,8 @@ import { CartProvider } from "./context/CartContext";
 import './styles/tailwind-base.css';
 import Layout from "./containers/layout";
 import { WishlistProvider } from "./context/WishlistContext";
+import Checkout from "./pages/Checkout";
+import Orders from "./pages/Orders";
 
 
 
@@ -64,6 +66,9 @@ function App() {
         <Route path="/portfolio" Component={Portfolio} />
         <Route path="/shop" Component={Shop} />
         <Route path="/cart" Component={Cart} />
+        <Route path="/checkout" Component={Checkout} />
+        <Route path="/orders" element={<Orders />} />
+
       </Routes>
     </Layout>
     </div>
