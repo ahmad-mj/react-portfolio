@@ -2,12 +2,13 @@ import React from "react";
 import HeroSection from "./HeroSection";
 import Skills from "../TrainingPrograms/TrainingPrograms";
 import Resume from "../resume";
+import TrainingPrograms from "../TrainingPrograms/TrainingPrograms";
 
 const Home = () => {
 return(
     <>
         <HeroSection/>
-        <Skills/>
+        <TrainingPrograms title="Work" clickable={true} limit={7}/>
         {/* <Resume/> */}
     </>
     )
