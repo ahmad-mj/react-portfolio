@@ -21,6 +21,7 @@ import Layout from "./containers/layout";
 import { WishlistProvider } from "./context/WishlistContext";
 import Checkout from "./pages/Checkout";
 import Orders from "./pages/Orders";
+import TrainingPage from "./containers/TrainingPrograms/TrainingPage";
 
 
 
@@ -68,6 +69,7 @@ function App() {
         <Route path="/cart" Component={Cart} />
         <Route path="/checkout" Component={Checkout} />
         <Route path="/orders" element={<Orders />} />
+        <Route path="/training-programs" Component={TrainingPage} />
 
       </Routes>
     </Layout>
