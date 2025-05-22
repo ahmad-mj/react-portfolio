@@ -5,7 +5,7 @@ import Home from "./containers/home";
 import Contact from "./containers/contact";
 import Portfolio from "./containers/portfolio";
 import Resume from "./containers/resume";
-import Skills from "./containers/TrainingPrograms/TrainingPrograms";
+import Skills from "./containers/TrainingPrograms/TrainingProgramsGrid";
 import Navbar from "./components/navbar";
 import Particles, { initParticlesEngine } from "@tsparticles/react";
 import { loadSlim } from "@tsparticles/slim";
@@ -21,7 +21,7 @@ import Layout from "./containers/layout";
 import { WishlistProvider } from "./context/WishlistContext";
 import Checkout from "./pages/Checkout";
 import Orders from "./pages/Orders";
-import TrainingPage from "./containers/TrainingPrograms/TrainingPage";
+import TrainingPage from "./containers/TrainingPrograms/TrainingProgramsPage";
 
 
 

@@ -4,9 +4,9 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import { Link } from "react-router-dom";
 
-const TrainingPrograms = ({
+const TrainingProgramsGrid = ({
   lang = "en",
-  title = "Training Programs",
+  heading = "Training Programs",
   clickable = false,
   onClick,
   limit
@@ -24,7 +24,7 @@ const TrainingPrograms = ({
   return (
     <section className="bg-white py-12">
       <div className="max-w-6xl mx-auto px-4">
-        <h2 className="text-3xl font-bold mb-8">{title}</h2>
+        <h2 className="text-3xl font-bold mb-8">{heading}</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {programsToDisplay.map((program, index) => {
             const content = (
@@ -79,4 +79,4 @@ const TrainingPrograms = ({
   );
 };
 
-export default TrainingPrograms;
+export default TrainingProgramsGrid;
