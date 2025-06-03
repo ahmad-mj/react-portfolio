@@ -1,6 +1,6 @@
 import { Route, Routes } from "react-router-dom";
 import "./App.scss";
-import About from "./containers/about";
+// import About from "./containers/about";
 import Home from "./containers/home";
 import Contact from "./containers/contact";
 import Portfolio from "./containers/portfolio";
@@ -18,15 +18,15 @@ import TrainingPage from "./containers/TrainingPrograms/TrainingProgramsPage";
 
 function App() {
   return (
-    <WishlistProvider>
-      <CartProvider>
-        <LanguageProvider>
+    <LanguageProvider>
+      <WishlistProvider>
+        <CartProvider>
           <div className="App">
             <Navbar />
             <Layout>
               <Routes>
                 <Route path="/" Component={Home} />
-                <Route path="/about" Component={About} />
+                {/* <Route path="/about" Component={About} /> */}
                 <Route path="/contact" Component={Contact} />
                 <Route path="/home" Component={Home} />
                 <Route path="/portfolio" Component={Portfolio} />
@@ -38,9 +38,9 @@ function App() {
               </Routes>
             </Layout>
           </div>
-        </LanguageProvider>
-      </CartProvider>
-    </WishlistProvider>
+        </CartProvider>
+      </WishlistProvider>
+    </LanguageProvider>
   );
 }
 
