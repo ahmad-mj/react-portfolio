@@ -37,7 +37,6 @@ const Navbar = () => {
         </nav>
 
         {/* Right: toggles */}
-          <LanguageToggle/>
         <div className="flex items-center gap-4">
           <button
             className="md:hidden text-gray-700 dark:text-gray-200"
